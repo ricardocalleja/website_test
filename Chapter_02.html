@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Chapter 2 - Spontaneous Potential</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Definition of SP</a></li>
+            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Origin of Spontaneous Potentials</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Baseline Responses in Shale</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> SP Response to Rmf/Rw Contrasts</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Chapter 2 Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <p data-time="0:00"><b>Module Overview</b></p>
+                <p data-time="0:00">Ricardo: Hey, welcome back! This chapter is about Spontaneous Potentials, also known  in Wireline Logging as "SP".</p>
+               
+                <p data-time="0:05"><b>Learning objectives</b></p>
+                <p data-time="0:05">After completing this section you will learn to: Understand the origin of spontaneous potentials.Identify SP key applications. Determine possible sources of  error on SP readings.Describe the baseline responses in shale. Also, analyze SP response to the ratio of Resistivity of mud filtrate and formation water resistivity.And finally you will classify invasion profiles using SP logs, so let's begin! </p>
+
+                <p data-time="0:06"><b>Definition of SP</b></p>
+                <p data-time="0:11">The spontaneous potential (SP) tool is designed to measure a natural—or spontaneous—current flow between the borehole and formation. What we measure here is a really small voltage between an electrode in the surface called "fish" and another electrode in the tool which is inside the borehole.</p>
+
+                <p data-time="1:05"><b>Origin of Spontaneous Potentials</b></p>
+                <p data-time="1:05">SP deflections arise from currents flowing in the mud-filled borehole and the formation, driven by two main types of processes: electrochemical and electrokinetic. Let’s define these processes and their subcategories:</p>
+                <p data-time="1:20">Electrochemical Processes involve ionic imbalances between fluids. When two fluids with different ionic concentrations are in contact, ions migrate to the fluid with lower concentration, creating a current flow. There are two specific types of electrochemical processes:</p>
+                <p data-time="1:40">First, Membrane Potential: This occurs in formations with shale. Clay minerals with negative charges repel negative ions and allow positive ions to migrate, creating an electromotive force called the membrane potential. This potential causes current flow across the formation boundary, affecting the SP measurement.</p>
+                <p data-time="2:10">Secondly, we have Liquid Junction Potential: This happens when mud filtrate with different salinity invades a formation. Ions migrate at the boundary between mud filtrate and formation water, creating a liquid junction potential. This also generates current flow and affects the SP measurement.</p>
+                <p data-time="2:40">Finally, Electrokinetic Processes involve fluid movement at the borehole/formation interface. As fluids move through porous media like mudcake, they transport ions, creating an electromotive force called the streaming or electrofiltration potential. This is influenced by factors like differential pressure and the salinity of the solutions.</p>
+                <p data-time="3:12">In summary, understanding these processes helps interpret SP measurements accurately, as they highlight the underlying mechanisms that generate the observed SP deflections.</p>
+
+                <p data-time="3:30"><b>Applications</b></p>
+                <p data-time="3:30">What is SP useful for? And what about its applications? Well, SP measurements can be effectively used to estimate the volume of shale, or VSH, in a formation. This is because clay minerals in shale have charge imbalances that restrict the movement of ions, affecting the current generated. Essentially, the presence of these clay minerals alters the SP response, making it a useful indicator for identifying the shale content in the formation.</p>
+                <p data-time="4:00">Another key application of SP measurements is estimating the resistivity of formation water, or Rw. This value is crucial for calculating water saturation using the Archie equation.</p>
+                <p data-time="4:30">Ideally, Formation water resistivity (Rw) is measured directly from a sample of formation water. However, if this isn't possible, the SP response in a water-bearing formation can be used instead. The SP deflection on a log reflects the resistivity contrast between mud filtrate and formation water (Rmf/Rw). By knowing the resistivity of the mud filtrate from the API mud test at the wellsite, we can determine the value of Rw.</p>
+                <p data-time="5:00">SP measurements can also be used for well-to-well correlation, defining formation boundaries, and determining formation thickness. However, since SP response depends mainly on fluid characteristics, it may not always be the most reliable method for these tasks.</p>
+
+                <p data-time="5:30"><b>Logging Conditions</b></p>
+                <p data-time="5:30">Next, let's consider how logging conditions affect the effectiveness of SP measurements. Be aware that SP responses are not valid in wells drilled with oil-based mud or air because there's no electrical continuity between the formation and the downhole electrode. Similarly, SP measurements aren't valid in casing due to the conductivity of steel.</p>
+                <p data-time="6:00">The best results come from water-based drilling fluids with a significant contrast between mud filtrate resistivity (Rmf) and formation water resistivity (Rw). However, SP measurements become less useful when the salinities of the mud filtrate and formation water are similar. For instance, in formations with saline water, drilled with saltwater-based mud, or formations with very fresh water, drilled with very fresh water-based mud.</p>
+
+                <p data-time="6:30"><b>Physics of the Measurement</b></p>
+                <p data-time="6:30">Now let's think about the physics behind SP measurements, remember that the SP tool captures the potential difference between a downhole electrode and a surface reference electrode called fish.</p>
+                <p data-time="6:50">Well, since the downhole electrode is in the mud column, the SP deflection observed on a log only shows the potential drop in the borehole, not the full potential drops within the formation. Therefore, the observed SP response reflects only part of the total electromotive force (emf).</p>
+                <p data-time="7:10">This means that for accurate measurements, the surface electrode should be isolated from surface potentials. Any excess potential on the surface fish can cause errors in the measurement, which are unpredictable and can't be corrected later.</p>
+                <p data-time="7:30">Possible sources of excess potential include magnetism from measuring wheels, line leakage, non-static fish conditions, and welding. Therefore ensuring a good earth ground reference for the surface fish is vital to minimize measurement errors.</p>
+                
+
+                <p data-time="8:10"><b>Baseline Responses in Shale</b></p>
+                <p data-time="8:18">In practice, the SP tool is almost never run alone, it usually comes integrated with a resistivity tool. Whether it might be induction or a laterolog. With that being said, we will learn now about the SP baseline responses in shale.</p>
+                <p data-time="8:10">In the image, we can get a sense of how the SP curve is shown in a log. By best practices, the scale of the SP curve is adjusted in a way that the SP baseline is usually near the right side of the track.</p>
+                <p data-time="8:30">Be aware that in permeable rocks, any salinity difference between invaded mud filtrate and the original formation water causes a deflection away from the SP shale baseline. By quickly scanning the SP curve, we can distinguish permeable formations from impermeable shales.</p>
+                <p data-time="8:50">Additionally, shale also shows a baseline response on resistivity curves. Due to their very low permeability, shales are not usually invaded, and resistivity values at all depths of investigation are equal, causing the curves to "stack," meaning that the curve for Shallow resistivity will read similar to the Deep resistivity curve. Additionally, because clay minerals in shale are conductive, the resistivity baseline is typically low, in the range of 1-10 Ω-m (Ohm-meter).</p>
+
+                <p data-time="9:10"><b>SP Response to Rmf/Rw Contrasts</b></p>
+                <p data-time="9:10">The measured voltage of SP tools is dependent on the contrast of the ratio of Resistivity mud filtrate and Formation water Resistivity (Rmf/Rw ratio); where greater contrasts result in larger voltage drops, and larger SP curve deflections from its shale baseline.</p>
+                <p data-time="9:30">The direction of SP curve deflection – left or right – is controlled by the polarity of the natural current flow in the formation, which is determined by the absolute relationship between Rmf and Rw. If the Resistivity of mud filtrate is greater than the Formation water Resistivity (for example, fresh mud invading salty formation water), current flows into the permeable formation and returns through adjacent shales and into the borehole. If Resistivity mud filtrate (Rmf) is less than Formation water Resistivity (Rw) - as is the case of salty mud invading fresh formation water-, the current loop is reversed.</p>
+                <p data-time="9:50">That's why we say that Negative SP deflection (when the curve deflects to the left of the shale baseline) indicates that mud filtrate is more resistive than formation water (Rmf > Rw). This common SP response is observed in water-based mud where fresh mud filtrate invades formation containing salty water.</p>
+                <p data-time="10:10">On the contrary, Positive SP deflection (when the curve deflects to the right of the shale baseline) occurs when mud filtrate is less resistive than formation water (Rmf < Rw). This is seen when fresh water causes positive deflection, typically at shallower depths and already behind casing.</p>
+                <p data-time="10:30">And when there is no salinity contrast between mud filtrate and formation water (Rmf = Rw), the SP curve shows minimal deflection from the shale baseline. This is a limitation of the SP curve as a permeability indicator: permeable water-saturated rocks where the ratio Rmf/Rw = 1 can be mistaken for shale.</p>
+                <p data-time="10:50">In conclusion, SP tools are valuable in wireline logging because they provide information about subsurface formations. By understanding their origin, applications, and influencing factors, we can make better decisions in oil and gas exploration.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const scriptWrapper = document.getElementById('script-wrapper');
+        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+
+        function highlightCurrentScript() {
+            const currentTime = video.currentTime;
+
+            scriptParagraphs.forEach(p => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                if (currentTime >= pTime) {
+                    clearHighlights();
+                    p.classList.add('highlight');
+                    scrollToElement(p);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            scriptParagraphs.forEach(p => {
+                p.classList.remove('highlight');
+            });
+        }
+
+        function scrollToElement(element) {
+            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
+        }
+
+        function parseTime(timeString) {
+            const [minutes, seconds] = timeString.split(':').map(parseFloat);
+            return minutes * 60 + seconds;
+        }
+
+        scriptParagraphs.forEach(p => {
+            p.addEventListener('click', () => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                video.currentTime = pTime;
+                video.play();
+            });
+        });
+
+        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const time = parseFloat(event.target.getAttribute('data-time'));
+                video.currentTime = time;
+                video.play();
+            });
+        });
+
+        video.addEventListener('timeupdate', highlightCurrentScript);
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Chapter 6 - Density Porosity</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objectives</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Energy levels</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Detectors</a></li>           
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Corrections</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Calibration</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Closing Remarks</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Chapter 6 Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <p data-time="0:00"><b>Module Overview</b></p>
+                <p data-time="0:00">Ricardo: Welcome to our module about the Density Porosity Tool.</p>
+            
+                <p data-time="0:05"><b>Learning Objectives</b></p>
+                <p data-time="0:05">In this module, we will explore the tool's functionality, applications, logging conditions, and the physics behind its measurements. We will understand what bulk density is and how it is related to porosity. Finally, we will also learn about the photoelectric factor (Pe) and its use for determining rock types. Let's start!</p>
+            
+                <p data-time="0:10"><b>Applications</b></p>
+                <p data-time="0:10">The primary objectives of logging a density porosity tool are to determine formation porosity and lithology. To achieve this, we calculate a formation property called bulk density, and from this, using the following equation, it's possible to derive a value for porosity.</p>
+                <p data-time="0:30">With knowledge of porosity (Φ) and true resistivity (Rt) from a resistivity log, the fraction of pore space occupied by water (known as water saturation) can be calculated using the Archie equation.</p>
+                <p data-time="0:50">Once we know the quantity of water, it will be assumed that any fluid that is not water will be hydrocarbons, and that's how we estimate hydrocarbon saturation.</p>
+                <p data-time="1:10">Additional applications of porosity tools include: Determining shale volume (VSH) when combined with another porosity measurement like neutron porosity tools. Identifying gas-bearing formations, again combined with neutron porosity.Estimating hydrocarbon density. Describing rock mechanical properties with data from sonic logs.</p>
+      
+                <p data-time="1:40"><b>Logging Conditions</b></p>
+                <p data-time="1:40">The density porosity tool is capable of acquiring data in most well conditions, including: Fresh water-based mud,Saltwater-based mud,Oil-based mud, Air-drilled boreholes</p>
+                <p data-time="2:00">But It cannot provide accurate data in cased holes, because sensors are generally mounted in a pad that requires permanent contact with the formation to get proper measurements.</p>
+            
+                <p data-time="2:20"><b>Physics of the Measurement</b></p>
+                <p data-time="2:20">Now we will cover the physics of the measurement. The Density Porosity tool uses a radioactive source to emit high-energy gamma rays into the formation. These gamma rays interact with the surrounding formation.</p>
+                <p data-time="2:40">As these gamma rays undergo multiple collisions with atoms in the formation, they go from high energy levels to low energy levels, until they reach a point where some are absorbed and cease to exist.</p>
+                <p data-time="3:00">But some of them, now with different energy levels, do reach the detectors, usually two scintillation crystals, and based on these measurements, the tool calculates two key properties: bulk density (𝜌𝑏) and the photoelectric factor (𝑃𝑒).</p>
+                <p data-time="3:20">This is useful because with bulk density (𝜌𝑏), we can calculate formation porosity using this formula, and with the photoelectric factor (𝑃𝑒), we can determine the lithology as shown in the table.</p>
+            
+                <p data-time="3:40"><b>Energy Levels</b></p>
+                <p data-time="3:40">It is important to understand that the gamma rays emitted from the radioactive source interact with the formation in two main ways:</p>
+                <p data-time="4:00">High-energy gamma rays (above 100 keV) collide with outer shell electrons in the formation, losing energy in a process called Compton scattering. This interaction is not dependent on the type of rock (lithology-independent). By measuring these scattered gamma rays, we can determine the Electron density (⍴e) and with this, compute the bulk density (𝜌𝑏) of the formation.</p>
+                <p data-time="4:20">Another type of interaction is photoelectric absorption, a phenomenon that occurs when low-energy gamma rays (below 100 keV) interact with inner shell electrons, losing all their energy. This interaction is dependent on the type of rock (lithology-dependent). By analyzing the reduction in gamma ray count due to photoelectric absorption, we can determine the photoelectric factor (𝑃𝑒), which helps identify the type of rock based on the formation's average atomic number (Z).</p>
+            
+                <p data-time="4:40"><b>Detectors</b></p>
+                <p data-time="4:40">Talking about detectors, density porosity tools have two scintillation detectors, one called Long-spaced and the other short-spaced, based on the distance from the radioactive source. They measure the gamma rays that return after interacting with the formation. These detectors contain sodium iodide crystals, which produce light pulses when hit by gamma rays. These light pulses are converted to electrical signals by photomultiplier tubes, allowing us to measure the energy levels of gamma rays. These energy levels are recorded by the tool as count rates.</p>
+            
+                <p data-time="5:20"><b>Corrections</b></p>
+                <p data-time="5:20">But consider that corrections must be applied on these count rates to compensate for borehole diameter and mud weight since variations can affect the measurements. Also corrections for Stand-off are necessary. Remember that stand-off is the separation between the detector and the formation caused by washouts, borehole irregularities, or mud cake. For these corrections, whenever in presence of a density porosity log look as a quality indicator the curve CORP (correction plus) and CORM (correction minus).</p>
+            
+                <p data-time="5:40"><b>Calibration</b></p>
+                <p data-time="5:40">Please note that the conversion of count rates to bulk density (𝜌𝑏) and photoelectric factor (𝑃𝑒) is out of the scope of this course since it depends on the specific tool and each service company.</p>
+                <p data-time="6:00">However, it must be noted that the ability to produce accurate values for bulk density (𝜌𝑏) and photoelectric factor (𝑃𝑒) is guaranteed through calibration. For this the porosity tool is calibrated at the shop in an aluminum block and a magnesium block, both of which have known values of bulk density (ρb) and photoelectric factor (Pe). Once at the wellsite a field block made of aluminum is used for field verifications before and after logging the tool in the well. </p>
+            
+                <p data-time="6:40"><b>Closing Remarks</b></p>
+                <p data-time="6:40">And that's it for this chapter, to recap: we explored the Density Porosity Tool, its key applications in determining formation porosity and lithology, the logging conditions under which it operates effectively. We described the principles of the measurements, discussing gamma ray interactions, energy levels, and the role of scintillation detectors. We also covered essential corrections for borehole conditions and the importance of calibration. With these insights, you are now better equipped to understand the Density Porosity Tool in wireline logging. </p>
+            </div>
+            
+            
+            
+        </div>
+        
+        
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const scriptWrapper = document.getElementById('script-wrapper');
+        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+
+        function highlightCurrentScript() {
+            const currentTime = video.currentTime;
+
+            scriptParagraphs.forEach(p => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                if (currentTime >= pTime) {
+                    clearHighlights();
+                    p.classList.add('highlight');
+                    scrollToElement(p);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            scriptParagraphs.forEach(p => {
+                p.classList.remove('highlight');
+            });
+        }
+
+        function scrollToElement(element) {
+            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
+        }
+
+        function parseTime(timeString) {
+            const [minutes, seconds] = timeString.split(':').map(parseFloat);
+            return minutes * 60 + seconds;
+        }
+
+        scriptParagraphs.forEach(p => {
+            p.addEventListener('click', () => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                video.currentTime = pTime;
+                video.play();
+            });
+        });
+
+        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const time = parseFloat(event.target.getAttribute('data-time'));
+                video.currentTime = time;
+                video.play();
+            });
+        });
+
+        video.addEventListener('timeupdate', highlightCurrentScript);
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Chapter 5 - Neutron Porosity</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objectives</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Neutron Source</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Energy levels</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> The Slowing of Neutrons</a></li>           
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> The Borehole Problem</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Calibration</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Closing Remarks</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Chapter 5 Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <p data-time="0:00"><b>Module Overview</b></p>
+                <p data-time="0:00">Ricardo: Welcome to this section about neutron porosity tools.</p>
+        
+                <p data-time="0:05"><b>Learning Objectives</b></p>
+                <p data-time="0:05">Today, we'll explore their applications, logging conditions, and the principle of operation. We'll also see how the borehole conditions affect neutron porosity tools, and why they generally use dual detectors, ending with a discussion on equivalent porosities. Let's begin!</p>
+        
+                <p data-time="0:10"><b>Applications</b></p>
+                <p data-time="0:10">The primary objective of a neutron porosity tool is to determine formation porosity and assist in lithology identification. Additionally, they can also aid in the shale volume determination and gas-bearing formation identification when combined with density or sonic porosity data.</p>
+        
+                <p data-time="0:40"><b>Logging Conditions</b></p>
+                <p data-time="0:40">Certainly, logging conditions significantly impact the accuracy of neutron porosity measurements. Factors such as borehole size, salinity, and detector stand-off, which is any physical separation between a detector and the formation, must be considered to ensure reliable data.</p>
+                <p data-time="1:00">In general terms, neutron porosity tools can be used with fresh water-based mud, saltwater-based mud, oil-based mud, and even in cased holes.</p>
+        
+                <p data-time="1:20"><b>Physics of the Measurement</b></p>
+                <p data-time="1:20">Now let's get into the details of the principle of operation. It turns out that neutron porosity tools don't measure porosity directly. Instead, they measure the abundance of low-energy neutrons in a formation.</p>
+                <p data-time="1:40">First, consider the process of neutron emission. The tool uses a chemical radioactive source to emit high-energy neutrons into the formation. These neutrons collide with atomic nuclei in the formation, losing energy in a process called 'thermalization'.</p>
+                <p data-time="2:00">Hydrogen atoms, mainly present in the fluids (oil, gas, water) that occupy pore spaces in a formation, are particularly effective at slowing down neutrons. As the neutrons lose energy and reach thermal levels, they can be detected by the tool's sensors.</p>
+                <p data-time="2:20">The number of detected low-energy neutrons is inversely related to the hydrogen content. Higher hydrogen content, indicating higher fluid content and thus higher porosity, results in fewer neutrons reaching the detectors. By calibrating the tool's response to known porosity values, we can interpret the measurements to estimate formation porosity.</p>
+                <p data-time="2:40">In summary, neutron porosity tools emit high-energy neutrons, measure the resulting low-energy neutrons after interaction with the formation, and interpret this data to estimate hydrogen content. Since hydrogen is primarily found in pore fluids, this measurement serves as an indicator for formation porosity.</p>
+        
+                <p data-time="3:00"><b>Neutron Source</b></p>
+                <p data-time="3:00">The neutron source in porosity tools typically involves a chemical source, such as americium-beryllium (AmBe) or californium-252 (Cf-252). These sources emit high-energy neutrons that interact with the surrounding formation.</p>
+                <p data-time="3:20">Nuclear logging tools typically use two detectors: a short-spaced (SS) detector close to the radioactive source and a long-spaced (LS) detector further away. The ratio of their readings, called the SS/LS ratio, increases with porosity.</p>
+                <p data-time="3:40">Different rock types affect the SS/LS ratio differently, helping in determining lithology. For instance, dolomite slows neutrons efficiently, resulting in a higher SS/LS ratio than limestone, while quartz sandstone is less efficient, leading to a lower SS/LS ratio.</p>
+        
+                <p data-time="4:00"><b>Energy Levels</b></p>
+                <p data-time="4:00">We previously mentioned that the chemical source emits high-energy neutrons and that detectors measure thermal neutrons. To better understand this, let's look at the energy levels of neutrons.</p>
+                <p data-time="4:20">Energy levels are expressed in a unit called "electron volt" (eV). For example, a neutron with an energy of 1 MeV (mega-electron volt) has the same striking power as an electron accelerated through a 1,000,000 volt potential.</p>
+        
+                <p data-time="4:40"><b>The Slowing of Neutrons</b></p>
+                <p data-time="4:40">Let's explore how neutrons lose energy in the formation. The primary mechanism is through elastic collisions with atomic nuclei, similar to billiard balls colliding.</p>
+                <p data-time="5:00">Hydrogen can cause a neutron to lose about 50% of its energy in a single hit. While other elements can also slow neutrons, they're not nearly as effective as hydrogen.</p>
+                <p data-time="5:20">Two important concepts to understand the neutron slowing process are the Slowing Down Cross Section, which measures how efficiently an element can slow down fast neutrons to a detectable thermal level, and the Capture Cross Section, which represents the likelihood of a nucleus capturing a thermal neutron.</p>
+        
+                <p data-time="5:40"><b>The Borehole Problem</b></p>
+                <p data-time="5:40">We mentioned that a few corrections should be applied to neutron porosity tools measurements. Let's begin by analyzing borehole size.</p>
+                <p data-time="6:00">Borehole size influences the count rate. The larger the hole size, the larger the volume of borehole fluid (and, therefore, hydrogen) that neutrons must pass through, resulting in lower count rates.</p>
+                <p data-time="6:20">An increase in the salinity of the borehole fluid results in two competing effects: increased thermal neutron capture cross-section and decreased hydrogen concentration. The second effect predominates, significantly influencing the count rates measured by a thermal neutron detector.</p>
+                <p data-time="6:40">Detector stand-off, the physical separation between a detector and the formation, also significantly impacts the count rate. While decentralizers minimize stand-off effects, other factors like mudcake, irregular conditions, casing, and cement sheath contribute to stand-off and require real-time or post-processed corrections.</p>
+        
+                <p data-time="7:00"><b>Calibration</b></p>
+                <p data-time="7:00">So far, we've learned that the tool measures a ratio of thermal neutrons captured by the detectors. But this ratio by itself doesn't tell us much about the formation. What we really want to know is the porosity, and that's where calibration comes in.</p>
+                <p data-time="7:20">Service companies use a practical calibration method. They start with a standard tool that's calibrated in the API pit. This tool measures the SS/LS ratio in a simpler calibrator, usually a water tank, which then becomes the reference for all other tools.</p>
+                <p data-time="7:40">During shop calibration, each neutron tool is calibrated in this water tank. A sensitivity factor is calculated to match its ratio with the standard tool's ratio, ensuring consistent readings across all tools.</p>
+                <p data-time="8:00">For field operations, a 'verifier check block' or 'snow block' is used. This portable reference is checked before and after each logging run to make sure the tool's calibration stays stable.</p>
+        
+                <p data-time="8:20"><b>Closing Remarks</b></p>
+                <p data-time="8:20">In summary, neutron porosity tools are essential for determining formation porosity, lithology, and other critical formation properties. Understanding their principles, the importance of calibration, and how borehole conditions affect the measurements is key to effectively using these tools in the field.</p>
+                <p data-time="8:40">Ricardo: Thank you for joining this module. I hope you found it informative. Feel free to review the material, and don't hesitate to reach out if you have any questions. See you in the next chapter!</p>
+            </div>
+        </div>
+        
+        
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const scriptWrapper = document.getElementById('script-wrapper');
+        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+
+        function highlightCurrentScript() {
+            const currentTime = video.currentTime;
+
+            scriptParagraphs.forEach(p => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                if (currentTime >= pTime) {
+                    clearHighlights();
+                    p.classList.add('highlight');
+                    scrollToElement(p);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            scriptParagraphs.forEach(p => {
+                p.classList.remove('highlight');
+            });
+        }
+
+        function scrollToElement(element) {
+            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
+        }
+
+        function parseTime(timeString) {
+            const [minutes, seconds] = timeString.split(':').map(parseFloat);
+            return minutes * 60 + seconds;
+        }
+
+        scriptParagraphs.forEach(p => {
+            p.addEventListener('click', () => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                video.currentTime = pTime;
+                video.play();
+            });
+        });
+
+        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const time = parseFloat(event.target.getAttribute('data-time'));
+                video.currentTime = time;
+                video.play();
+            });
+        });
+
+        video.addEventListener('timeupdate', highlightCurrentScript);
+    </script>
+</body>
+</html>

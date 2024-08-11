@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Chapter 3 - Resistivity Tools</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objective</a></li>
+            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Resistivity tools Classification</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Induction tools physics of the Measurements</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Laterolog physics of the Measurements</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Microresistivity tools physics of the Measurements</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Resolution of the Measurements</a></li>           
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Chapter 3 Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <p data-time="0:00"><b>Module Overview</b></p>
+                <p data-time="0:00">Ricardo: Hi there, and welcome to the third chapter of this course on "Resistivity Tools." In this section, we will cover the applications of these tools and what they are really measuring. We will start by distinguishing between "Induction Tools," and "Laterologs," and finally, we will cover "Micro Resistivity Tools." So, Let's jump in!</p>
+               
+                <p data-time="0:05"><b>Learning objectives</b></p>
+                <p data-time="0:05">By the end of this module, you will be able to: Understand the different types of resistivity tools Select Appropriate tools based on logging conditions. Also, to Understand the physics of Measurements. And finally Evaluate resistivity tool’s measurement resolution by understanding concepts like depth of investigation and vertical resolution Let's get started!</p>
+
+                <p data-time="0:06"><b>Resistivity tools Classification</b></p>
+                <p data-time="0:11">In the field of wireline logging, there are several types of resistivity tools. The basic types are: Induction tools, laterologs and microresistivity tools. Additionally, there are more advanced services like resistivity imagers, but on this course we will focus on the basic types.</p>
+
+                <p data-time="1:05"><b>Applications</b></p>
+                <p data-time="1:05">The primary objective of running an induction tool or a laterolog, is to determine a value for  true resistivity (Rt) of a formation; that is, resistivity of the uninvaded zone.</p>
+                <p data-time="1:20">And the primary objective of logging a micro resistivity tool is to estimate the depth of invasion and to determine a value for flushed zone resistivity (Rxo)</p>
+                <p data-time="1:40">But how to determine in which case to use a laterolog or an induction tool?</p>
+                
+                <p data-time="2:10"><b>Logging Conditions</b></p>
+                <p data-time="2:40">Finally, Electrokinetic Processes involve fluid movement at the borehole/formation interface. As fluids move through porous media like mudcake, they transport ions, creating an electromotive force called the streaming or electrofiltration potential. This is influenced by factors like differential pressure and the salinity of the solutions.</p>
+                <p data-time="3:12">In summary, understanding these processes helps interpret SP measurements accurately, as they highlight the underlying mechanisms that generate the observed SP deflections.</p>
+
+                <p data-time="3:30"><b>Logging Conditions</b></p>
+                <p data-time="3:30">As a rule of thumb, if the ratio between the resistivity of the mud filtrate (Rmf) and the formation water resistivity (Rw) is less than or equal to 2.5, we should use a Laterolog. If the ratio is greater than 2.5, induction tools are preferred.</p>
+                <p data-time="4:00">Induction tools are best suited for non-conductive and low-conductivity boreholes, such as those drilled with air, oil-based mud, or fresh water-based mud</p>
+                <p data-time="4:30">On the other hand, in boreholes with saltwater-based drilling fluids, the borehole effect is too significant for induction tools to provide an accurate measurement of formation resistivity. In such cases, using a Laterolog Tool is more effective, because laterologs provide best results where there is low contrast between the salinity of the mud filtrate and the formation water.</p>
+                <p data-time="5:00">Lastly Micro resistivity tools provide best results in conductive borehole fluids, like saltwater-based mud, or in fresh water-based mud.</p>
+
+                <p data-time="5:30"><b>Induction tools physics of the Measurement</b></p>
+                <p data-time="5:30">Let's learn about the physics behind how resistivity tools work. Since the principles differ between induction, laterologs, and micro resistivity tools, we'll cover each one separately. First, we start with induction tools</p>
+                <p data-time="6:00">Induction tools use a basic setup of a transmitter coil and several receiver coils. For simplicity, we'll draw only one receiver coil in this example.</p>
+                <p data-time="6:30">When a current flows through the transmitter coil (Tx, shown in green), it creates a primary magnetic field. This magnetic field induces a current, or "primary ground loop," in the surrounding rock formation.</p>
+                <p data-time="6:50">This primary ground loop generates a secondary magnetic field, which then induces a voltage in the receiver coil (Rx, shown in red). This voltage, known as the R-signal, is important because it is related to the formation's conductivity. And by knowing the formation's conductivity, we can calculate its resistivity, which is just the inverse.</p>
+                <p data-time="7:10">However, there's also an unwanted voltage caused by the direct coupling between the transmitter and receiver coils, known as the mutual signal, which needs to be corrected.</p>
+                <p data-time="7:30">Additionally, in formations with very low resistivity (less than 3 Ω-m), another voltage called the X-signal appears due to a "secondary ground loop." This also needs to be corrected.</p>
+                <p data-time="8:18">In summary, the principle of operation of an induction tool is to apply an alternating current to a coil, generating a magnetic field, which will induce a current into the formation, then the receiver, which is another coil, will measure a voltage that contains 3 main components:</p>
+                <p data-time="8:10">The R-signal which captures the resistivity of the formation.</p>
+                <p data-time="8:30">The mutual signal interaction between the transmitter and receiver coils </p>
+                <p data-time="8:50">and the X-signal, affected by the conductivity of the very low resistivity formation and borehole fluids.</p>
+
+                <p data-time="9:10"><b>Laterolog physics of the Measurement</b></p>
+                <p data-time="9:10">Now let's study another type of resistivity tool: Laterologs!</p>
+                <p data-time="9:30">The purpose of using a laterolog is to accurately determine the true resistivity of underground formations (Rt) . This tool works by injecting an electrical current into the formation using electrodes. Then the current travels through the formation and it returns to the tool's receivers. By understanding the geometry of the current flow, we can apply Ohm's law to calculate the resistivity of the formation.</p>
+                <p data-time="9:50">Remember that we want to determine resistivity values from different distances from the borehole, one for deep measurements and one for shallow measurements. Well, for this to happen we need to find a way to make the injected current flow in a specific way. </p>
+                <p data-time="10:10">Here we can see a diagram of a laterolog, as you can see it has several metallic electrodes, positioned along the tool string and are electrically isolated from one another.</p>
+                <p data-time="10:30">The current comes out from the transmitter TX, here shown in green, this current is called "survey current" and we have one for shallow readings and one for deep readings. Then this current travels through the formation and returns to the tool on a different  electrode called "current return" in this graph shown in red as Rx.</p>
+                <p data-time="10:50">But once the injected current goes out of the tool, the natural tendency is to follow the path of least resistance, which unfortunately does not cover the formation, but the borehole and tool housing. To overcome this issue, other electrodes, called "guard electrodes" are employed to emit a "focus current"  shown in yellow</p>
+                <p data-time="10:59">Please note that the survey current is the one of main interest since this will provide the information for resistivity. There will be for sure other electrodes depending on the service company that manufactures each laterolog but this is the general principle of operation of all of them</p>
+
+                <p data-time="11:00"><b>Microresistivity tools physics of the Measurement</b></p>
+                <p data-time="11:10">Now we move to talk about micro-resistivity tools. </p>
+                <p data-time="11:30">Keep in mind that the reason behind logging a micro-resistivity tool is to estimate the depth of invasion and to determine a value for the flushed zone resistivity (RXO). </p>
+                <p data-time="11:50">Considering that the flushed zone extends several inches from the borehole wall, a measurement of its resistivity is best achieved by a pad-mounted electrode device such as the micro-resistivity tool </p>
+                <p data-time="12:10">The way this tool works is basically injecting a current using an electrode that is mounted into a pad. The idea behind using a pad device is to keep contact with the borehole wall and create the conditions for this injected current to travel through the flushed zone.</p>
+                <p data-time="12:30">But again injecting a current usually implies that the current will follow the path of least resistance and will travel through the borehole or the tool housing, Therefore to make the injected current called "survey current" flow through the flushed zone another current called "focused current" is injected. Something similar happens in the case of a laterolog but keep in mind that whenever we talk about micro-resistivity tools our main focus is the flushed zone and shallow measurements.</p>
+                <p data-time="12:50">But once the injected current goes out of the tool, the natural tendency is to follow the path of least resistance, which unfortunately does not cover the formation, but the borehole and tool housing. To overcome this issue, other electrodes, called "guard electrodes" are employed to emit a "focus current"  shown in yellow</p>
+
+                <p data-time="13:00"><b>Resolution of the Measurement</b></p>
+                <p data-time="13:10">In this section we will discuss the resolution of the measurements for resistivity tools.</p>
+                <p data-time="13:30">If you read the datasheet for an induction, laterolog or micro resistivity tool, you will find two key concepts: Depth of investigation (DOI)  and Vertical resolution (VR)</p>
+                <p data-time="13:50">Depth of investigation is defined as the distance from the tool beyond which 50% of the measured signal originates. For example, consider a tool with a 90-inch DOI. Half of the tool’s measured signal originates from the volume beyond a 90-inch radius of the tool, while the remaining half originates from the volume within a 90-inch radius of the tool.</p>
+                <p data-time="14:10">Another key concept is Vertical resolution, which is defined as the minimum bed thickness that can be observed on a tool’s response. For instance, a tool with a 2-ft VR is capable of responding to a formation that is 2-ft thick; however, this does not necessarily mean the tool is capable of an accurate measurement in such a thin formation. In very thin formations, a large percentage of the tool’s response depends on the properties of adjacent formations.</p>
+               
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const scriptWrapper = document.getElementById('script-wrapper');
+        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+
+        function highlightCurrentScript() {
+            const currentTime = video.currentTime;
+
+            scriptParagraphs.forEach(p => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                if (currentTime >= pTime) {
+                    clearHighlights();
+                    p.classList.add('highlight');
+                    scrollToElement(p);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            scriptParagraphs.forEach(p => {
+                p.classList.remove('highlight');
+            });
+        }
+
+        function scrollToElement(element) {
+            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
+        }
+
+        function parseTime(timeString) {
+            const [minutes, seconds] = timeString.split(':').map(parseFloat);
+            return minutes * 60 + seconds;
+        }
+
+        scriptParagraphs.forEach(p => {
+            p.addEventListener('click', () => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                video.currentTime = pTime;
+                video.play();
+            });
+        });
+
+        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const time = parseFloat(event.target.getAttribute('data-time'));
+                video.currentTime = time;
+                video.play();
+            });
+        });
+
+        video.addEventListener('timeupdate', highlightCurrentScript);
+    </script>
+</body>
+</html>

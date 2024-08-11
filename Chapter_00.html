@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6; /*8ab4f8*/
+            border-radius: 10px; /* Rounded corners */
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Course Content</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Chapter 1 - The Reservoir and the logging environment</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Chapter 2 - Spontaneous Potential</a></li>
+            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Chapter 3 - Resistivity tools</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Chapter 4 - Gamma rays</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Chapter 5 - Neutron Porosity</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Chapter 6 - Density Porosity</a></li>
+            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i>  Chapter 7  - Acoustic Porosity</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Course Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <!-- Add your script here with timestamps -->
+            <!-- Add your script here with timestamps -->
+
+            <p data-time="00"><b>Welcome</b></p>
+            <p data-time="00">Ricardo: Hello, I am Ricardo Calleja, and I want to welcome you to the course: Wireline Logging, Essential Training.</p>
+            
+            <p data-time="07"><b>Learning Objectives</b></p>
+            <p data-time="07">This course covers foundational aspects of wireline logging: the resources needed, factors affecting the quality of logs, standards, and general practices in the oil and gas industry.</p>
+            <p data-time="29">Let's face it, this is not an easy job. It involves a lot of troubleshooting, data analysis, traveling, and physical effort. However, mastering the key concepts being taught here, will take you one step closer to success in the field.
+            </p>
+            
+            <p data-time="49">This initial training is divided in the following 7 chapters:</p>
+            
+            <p data-time="66">
+                <b>Course Chapters:</b>
+            </p>
+            <ul>
+                <li>Chapter 1 - The Reservoir and the Logging Environment</li>
+                <li>Chapter 2 - Spontaneous Potential or SP</li>
+                <li>Chapter 3 - Resistivity Tools</li>
+                <li>Chapter 4 - Gamma Rays</li>
+                <li>Chapter 5 - Neutron Porosity</li>
+                <li>Chapter 6 - Density Porosity</li>
+                <li>Chapter 7 - Acoustic Porosity</li>
+            </ul>
+            <p data-time="91">Be aware that this course is not about the technology of a specific service company. Instead, we will review what the industry leaders have to offer, providing a comprehensive understanding of wireline logging practices. Let’s begin.</p>
+            
+            </div>
+
+            </div>
+            
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var video = document.getElementById("video");
+                var scriptWrapper = document.getElementById("script-wrapper");
+                var scriptElements = document.querySelectorAll("#script p");
+                var navLinks = document.querySelectorAll(".nav-wrapper ul li a");
+    
+                scriptElements.forEach(function(p) {
+                    p.addEventListener("click", function() {
+                        var time = p.getAttribute("data-time");
+                        if (time) {
+                            video.currentTime = time;
+                            video.play();
+                            highlightScript(p);
+                        }
+                    });
+                });
+    
+                navLinks.forEach(function(link) {
+                    link.addEventListener("click", function(event) {
+                        event.preventDefault();
+                        var time = link.getAttribute("data-time");
+                        if (time) {
+                            video.currentTime = time;
+                            video.play();
+                            highlightCurrentScript(time);
+                        }
+                    });
+                });
+    
+                video.addEventListener("timeupdate", function() {
+                    highlightCurrentScript(video.currentTime);
+                });
+    
+                function highlightScript(element) {
+                    scriptElements.forEach(function(p) {
+                        p.classList.remove("highlight");
+                    });
+                    element.classList.add("highlight");
+                    scrollToView(element);
+                }
+    
+                function highlightCurrentScript(currentTime) {
+                    scriptElements.forEach(function(p) {
+                        var time = p.getAttribute("data-time");
+                        if (time && currentTime >= time) {
+                            highlightScript(p);
+                        }
+                    });
+                }
+    
+                function scrollToView(element) {
+                    var wrapperTop = scriptWrapper.scrollTop;
+                    var wrapperBottom = wrapperTop + scriptWrapper.clientHeight;
+                    var elementTop = element.offsetTop;
+                    var elementBottom = elementTop + element.clientHeight;
+                    
+                    if (elementTop < wrapperTop || elementBottom > wrapperBottom) {
+                        scriptWrapper.scrollTop = elementTop - (scriptWrapper.clientHeight / 2) + (element.clientHeight / 2);
+                    }
+                }
+            });
+        </script>
+        
+    </body>
+    
+    </html>

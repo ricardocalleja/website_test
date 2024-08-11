@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper {
+    flex: 1;
+    padding: 10px;
+}
+
+.video-wrapper video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+}
+
+.script-wrapper {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 100vh;
+    border-left: 1px solid #FFFFFF;
+}
+
+#script p {
+    padding: 10px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+#script p.active {
+    background-color: #ffeb3b;
+}

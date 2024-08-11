@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video with Script</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+        }
+
+        .nav-wrapper {
+            width: 15%;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .nav-wrapper ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-wrapper ul li {
+            margin: 10px 0;
+        }
+
+        .nav-wrapper ul li a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .nav-wrapper ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+            width: 85%;
+        }
+
+        .video-wrapper {
+            flex: 1;
+            max-width: 60%;
+            margin-right: 20px;
+        }
+
+        .script-wrapper {
+            flex: 1;
+            max-width: 35%;
+            overflow-y: scroll;
+            height: 450px;
+            border-left: 1px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background-color: #d4daf6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <h2>Chapter 7 - Acoustic Porosity</h2>
+        <ul>
+            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
+            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objectives</a></li>
+            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
+            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Key concepts</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Types of waves</a></li>           
+            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Tool Centralization and Washouts</a></li>
+            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Closing Remarks</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" download>Download Chapter 7 Manual</a></li>
+            <li><a href="https://drive.google.com/file/d/1uNxk1SOieoYJvMh9B_h8cFnHjcc7aiaL/view?usp=sharing" >Back to main menu</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="container">
+        <div class="video-wrapper">
+            <video id="video" controls>
+                <source src="Chapter_01_v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="script-wrapper" id="script-wrapper">
+            <div id="script">
+                <p data-time="0:00"><b>Module Overview</b></p>
+                <p data-time="0:00">Ricardo: Welcome to our module about Acoustic Porosity Tools.</p>
+        
+                <p data-time="0:05"><b>Learning Objectives</b></p>
+                <p data-time="0:05">In this module, we will learn the functionalities and applications of acoustic porosity tools. We will review the logging conditions in which these tools can be used, and we will learn the principle that explains how to go from acoustic signals to porosity values. Let's get started!</p>
+        
+                <p data-time="0:10"><b>Applications</b></p>
+                <p data-time="0:10">The primary objective of logging an acoustic porosity tool is to determine formation porosity. Unlike porosity estimates from neutron and density tools, which reflect the total porosity, acoustic porosity tools indicate effective porosity. This is crucial because effective porosity helps determine if the fluids in the formation can be produced.</p>
+                <p data-time="0:30">Another reason why clients request that an acoustic tool be logged in their well is to provide the information necessary for time‐to‐depth conversion of seismic surveys.</p>
+                <p data-time="0:35">When combined with neutron and density porosity measurements sonic log can identify gas-bearing formations and assist in lithology identification.</p>
+                <p data-time="0:55">Acoustic logs are also used to determine mechanical properties of the rocks.</p>
+                
+                <p data-time="1:00"><b>Logging Conditions</b></p>
+                <p data-time="1:00">Talking about the logging conditions, sonic tools are capable of acquiring data in most well conditions, including: fresh water-based mud,  saltwater-based mud and oil-based mud.  However, they cannot provide accurate data in air-drilled boreholes since sound does not travel well through air.</p>
+        
+                <p data-time="1:20"><b>Physics of the Measurement</b></p>
+                <p data-time="1:20">Acoustic porosity tools in wireline logging measure how quickly sound travels through rock formations. The principle to get porosity values is that, if sound travels fast through the formation, this formation is likely to be solid and has low porosity, but if sound travels relatively slow, then there must be pore space filled with fluids that are slowing down the sound waves.</p>
+                <p data-time="1:40">The key measurement here is called delta-t (Δt), also known as interval transit time or slowness. Delta-t represents the time it takes for sound to travel through one foot of formation. Let's explore how this sound is generated and measured.</p>
+                <p data-time="1:40">The tool consists of one or more transmitters and multiple receivers spaced along the tool's length. The transmitter converts an electrical signal into mechanical energy, causing the transmitter material to rapidly expand and contract.</p>
+                <p data-time="1:40">This vibration generates acoustic waves that travel through the borehole fluid, into the surrounding rock formation, and back to the receivers. Then the receivers detect different types of returning waves, primarily compressional (P-waves) and shear waves also known as S-waves.</p>
+                <p data-time="1:40">By precisely measuring the delta-t of the compressional waves, we can calculate the formation's porosity. The relationship is straightforward: as porosity increases, the compressional delta-t also increases.</p>
+                <p data-time="1:40">Again. Remember that In more porous formations, sound waves travel more slowly because they encounter more fluid-filled spaces. These pore spaces slow down the wave's journey, resulting in a higher delta-t value.</p>
+                <p data-time="1:40">So, a higher delta-t indicates a more porous formation, while a lower delta-t suggests a denser, less porous rock.</p>
+                <p data-time="1:40">To summarize, the tool emits acoustic waves, and we calculate the velocity of these waves by knowing the time they were generated and the distance between two or more receivers. There are many types of generated waves but we are interested in calculating delta-t values for critically refracted compressional waves and shear waves because porosity is proportional to the wave's velocity.</p>
+
+                <p data-time="2:00"><b>Key Concepts</b></p>
+                <p data-time="2:00">When talking about acoustic tools, there are a few key concepts that are important to have clear, so let's cover them</p>
+                <p data-time="2:00">Travel Time is the time elapsed from the moment the transmitter pulse is generated until an acoustic wave arrives at a receiver. Since this concept depends on the distance transmitter to receiver and will vary on each tool, a way to standardize this is to measure sound speed in terms of delta-t.</p>
+                <p data-time="2:20">Delta-t is the time required for sound to travel through a one-foot interval of formation, usually expressed in microseconds per foot. To compute its value we consider different vectors representing the way sound travels from the transmitter until it reaches at least 2 receivers. Then we divide the distance between receivers as shown in the formula.</p>
+                <p data-time="2:40">Moving on, on this table on the red column, we can see values associated with delta-t values for different types of formations and different types of fluids. and the values of velocity shown in the green column are simply derived from dividing 1 million by the delta-t value.</p>
+                <p data-time="2:40">Next, the transmitter-to-receiver distance is known as offset. A longer offset makes the acoustic tool capable of determining formation velocities in much larger diameter boreholes than a short-spaced tool. Another advantage of a great offset is that the longer it is it provides more time separation between the first arrival of critically refracted compressional waves and shear waves at the receive, which make it easier to detect with a greater degree of accuracy.</p>
+                <p data-time="2:40">Now in this image we see the distance between individual receivers which is called spacing.</p>
+                <p data-time="2:40">Let's think about the fact that once the signal is emitted by the transmitter, it travels in different forms. Some waves are reflected back, some of them get lost into the formation after being refracted, but the ones used for P-Wave computations are those "Critically refracted". Because this path represents the path of minimum travel time between transmitter and receiver, so the first compressional wave to arrive at any receiver is one that has been critically refracted.</p>
+                
+                <p data-time="3:00"><b>Types of Waves</b></p>
+                <p data-time="3:00">Moving on to the types of waves, remember that P-waves, are compressional waves which are the fastest and the first to arrive at any receiver, well keep in mind that they have the ability of traveling through liquids as well as solids, thus making them useful in determining porosity.</p>
+                <p data-time="3:00">Shear waves also called S-waves are created as the fluid pressure wave impinges upon the borehole wall, but the resulting molecular deformation occurs only within the rock and not the pore fluids. Fluids do not support shear deformation. As molecules of the rock are deformed, shear energy causes them to vibrate in a direction perpendicular to the direction of energy propagation. Shear energy traveling through the formation is re-radiated into the borehole, and the resulting fluid pressure wave is then detected at a receiver.</p>
+                <p data-time="3:20">There is another type of wave called "Stoneley" waves, which are surface waves created by the flexing of the interface between the borehole fluid and formation fluid with repetitive transmitter pulses. Each transmitter pulse causes a pressure increase on all sides of the tool which results in minute displacements of the borehole interface. Immediately following a transmitter pulse there is a sudden decrease in pressure and the fluid interface “rebounds.” This flexing of the fluid interface propagates up and down the borehole as a Stoneley wave.</p>
+                <p data-time="3:20">At this point we will get into more details on the wave generation process; some acoustic tools use a monopole transmitter, with the purpose of generating critically refracted P-waves and S-waves for delta-t measurements and from there porosity calculations. </p>
+                <p data-time="3:20">Monopoles transmitters are also capable of generating Stonely waves whose frequency analysis is used for permeability profiling. But Monopoles transmitters fail to generate critically refracted S-waves in slow rocks. This is why dipole transmitters are used: to measure shear velocity in rocks where monopoles can't.</p>
+                <p data-time="3:20">When reading specifications about porosity tools, you will see some of them have a "cross-dipole transmitter", that means two dipole transmitters positioned at 90 degrees, that when combined with directional data and borehole geometry can be used to investigate Anisotropy.</p>
+                <p data-time="3:20">And what is anisotropy? It's the variation of some physical property with respect to direction at a single point in the formation. We are interested in anisotropy because it can help with the Identification and orientation of natural fractures, also it serves to  determine ideal borehole trajectory in future wells, and many other applications like oriented perforating for sand control, and enhanced frac design.</p>
+                <p data-time="3:20">We've learned that dipole transmitters create a directional pulse. This results in the creation of flexural waves that travel along the borehole wall. At low frequencies, these waves move at the same speed as the formation's shear velocity, which is the key information we seek. Flexural waves occur in all formations, even those where monopole transmitters cannot generate critically refracted shear waves. As the flexural wave moves along the borehole wall, they cause pressure changes that are detected by the receiver.</p>
+                <p data-time="3:20">Now let's discuss how critical centralization is on any acoustic or sonic log. This image shows the component of the wave sound and the way it travels. If the tool is centered we could assume that the component A, C and E are equal and the calculation of delta-t will be as shown in the formula.</p>
+
+                <p data-time="3:40"><b>Tool Centralization and Washouts</b></p>
+                <p data-time="3:40">But whenever there are irregularities in the borehole, maybe caused by washouts as shown in the image. The calculation of delta-t values and therefore porosity will be affected.  Here we can see that the components are not the same, so the calculation won't be accurate whenever in presence of washouts</p>
+                <p data-time="3:40">A similar scenario occurs if the tool is tilted. </p>
+                <p data-time="3:40">A common solution for this is to use two transmitters, one on the top of the tool and one at the bottom.</p>
+                <p data-time="3:40">Utilizing vertically aligned transmitter-receiver pairs allows for a delta-t measurement that accounts for both tool tilt (misalignment with the borehole axis) and the presence of washouts.</p>
+
+                <p data-time="4:00"><b>Closing Remarks</b></p>
+                <p data-time="4:00">That brings us to the end of our module on Acoustic Porosity Tools. Let's quickly recap the main points we've covered today. We explored the functionality and applications of acoustic porosity tools, understanding how they measure effective porosity by analyzing the travel time of sound waves through rock formations. We discussed the significance of delta-t values, the types of waves involved, and the conditions under which these measurements are taken. We also reviewed the importance of tool centralization and how to compensate for tool tilt and borehole irregularities to ensure accurate measurements.</p>
+                <p data-time="4:00">Understanding these principles will help us make informed decisions in the field. I hope you enjoyed this lesson, thank you so much</p>
+            </div>
+        </div>
+        
+            
+            
+            
+        </div>
+        
+        
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const scriptWrapper = document.getElementById('script-wrapper');
+        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+
+        function highlightCurrentScript() {
+            const currentTime = video.currentTime;
+
+            scriptParagraphs.forEach(p => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                if (currentTime >= pTime) {
+                    clearHighlights();
+                    p.classList.add('highlight');
+                    scrollToElement(p);
+                }
+            });
+        }
+
+        function clearHighlights() {
+            scriptParagraphs.forEach(p => {
+                p.classList.remove('highlight');
+            });
+        }
+
+        function scrollToElement(element) {
+            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
+        }
+
+        function parseTime(timeString) {
+            const [minutes, seconds] = timeString.split(':').map(parseFloat);
+            return minutes * 60 + seconds;
+        }
+
+        scriptParagraphs.forEach(p => {
+            p.addEventListener('click', () => {
+                const pTime = parseTime(p.getAttribute('data-time'));
+                video.currentTime = pTime;
+                video.play();
+            });
+        });
+
+        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const time = parseFloat(event.target.getAttribute('data-time'));
+                video.currentTime = time;
+                video.play();
+            });
+        });
+
+        video.addEventListener('timeupdate', highlightCurrentScript);
+    </script>
+</body>
+</html>

@@ -3,223 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 5</title>
+    <title>Wireline Logging Tutorial</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include the Open Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
+            margin: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
-
-        .nav-wrapper {
-            width: 15%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-        }
-
-        .nav-wrapper ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .nav-wrapper ul li {
-            margin: 10px 0;
-        }
-
-        .nav-wrapper ul li a {
-            text-decoration: none;
-            color: #000;
-            cursor: pointer;
-        }
-
-        .nav-wrapper ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
+        .main-container {
             display: flex;
             flex-direction: row;
+            align-items: flex-start;
             justify-content: space-between;
-            margin: 20px;
-            width: 85%;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .video-wrapper {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 20px;
+        .menu-container {
+            flex: 0 0 15%; /* 15% of the width for the menu */
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            max-height: 100vh; /* Set maximum height to viewport height */
         }
-
-        .script-wrapper {
-            flex: 1;
-            max-width: 35%;
-            overflow-y: scroll;
-            height: 450px;
-            border-left: 1px solid #ddd;
-            padding-left: 20px;
+        .menu-container a {
+            display: block;
+            
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
         }
-
+        .menu-container a:hover {
+            background-color: #ddd;
+        }
+        .video-container {
+            padding-top: 50px;
+            flex: 0 0 50%; /* 50% of the width for the video */
+            position: relative;
+            background-color: #fff;
+        }
+        .script-container {
+            padding-top: 50px;
+            flex: 0 0 25%; /* 25% of the width for the script */
+            background-color: #fff;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 100vh;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
         .highlight {
-            background-color: #d4daf6;
-            border-radius: 10px;
-            padding: 5px;
+            background-color: rgba(173, 216, 230, 0.3); /* Light blue background */
         }
-
-        p {
-            margin: 10px 0;
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .menu-container, .video-container, .script-container {
+                flex: 1 0 auto;
+                width: 100%;
+                height: auto;
+            }
+            .menu-container {
+                order: 2;
+            }
+            .video-container {
+                order: 1;
+            }
+            .script-container {
+                order: 3;
+            }
         }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNRQGQ8HJ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WNRQGQ8HJ1');
-</script>
 </head>
 <body>
-    <div class="nav-wrapper">
-        <h2>Chapter 5 - Neutron Porosity</h2>
-        <ul>
-            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
-            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objectives</a></li>
-            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
-            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Neutron Source</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Energy levels</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> The Slowing of Neutrons</a></li>           
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> The Borehole Problem</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Calibration</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Closing Remarks</a></li>
-            <li><a href="https://ricardocalleja.com/Manuals/Chapter_5_Neutron_porosity.pdf" download>Manual Chapter 5</a></li>
-            <li><a href="https://ricardocalleja.com/">Back to main menu</a></li>
-
-        </ul>
-    </div>
-    
-    <div class="container">
-        <div class="video-wrapper">
-            <video id="video" controls>
-                <source src="Chapter_01_v1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <div class="main-container">
+        <div class="menu-container">
+            <a href="#"><h1>Chapter 5 - Neutron Porosity</h1></a>
+            <a href="#" data-time="00:01">Module Overview</a>
+            <a href="#" data-time="00:29">Learning objectives</a>
+            <a href="#" data-time="00:49">Applications</a>
+            <a href="#" data-time="01:06">Logging Conditions</a>
+            <a href="#" data-time="04:39">Physics of the Measurement</a>
+            <a href="#" data-time="06:24">Neutron Source</a>
+            <a href="#" data-time="08:20">Energy levels</a>
+            <a href="#" data-time="08:20">The Slowing of Neutrons</a>
+            <a href="#" data-time="08:20">The Borehole Problem</a>
+            <a href="#" data-time="08:20">Calibration</a>
+            <a href="#" data-time="08:20">Closing Remarks</a>
+            <a href="https://ricardocalleja.com/Manuals/Chapter_5_Neutron_porosity.pdf" download>Manual Chapter 5</a>
+            <a href="https://ricardocalleja.com/">Back to main menu</a>
         </div>
-        
-        <div class="script-wrapper" id="script-wrapper">
-            <div id="script">
-                <p data-time="0:00"><b>Module Overview</b></p>
-                <p data-time="0:00">Ricardo: Welcome to this section about neutron porosity tools.</p>
-        
-                <p data-time="0:05"><b>Learning Objectives</b></p>
-                <p data-time="0:05">Today, we'll explore their applications, logging conditions, and the principle of operation. We'll also see how the borehole conditions affect neutron porosity tools, and why they generally use dual detectors, ending with a discussion on equivalent porosities. Let's begin!</p>
-        
-                <p data-time="0:10"><b>Applications</b></p>
-                <p data-time="0:10">The primary objective of a neutron porosity tool is to determine formation porosity and assist in lithology identification. Additionally, they can also aid in the shale volume determination and gas-bearing formation identification when combined with density or sonic porosity data.</p>
-        
-                <p data-time="0:40"><b>Logging Conditions</b></p>
-                <p data-time="0:40">Certainly, logging conditions significantly impact the accuracy of neutron porosity measurements. Factors such as borehole size, salinity, and detector stand-off, which is any physical separation between a detector and the formation, must be considered to ensure reliable data.</p>
-                <p data-time="1:00">In general terms, neutron porosity tools can be used with fresh water-based mud, saltwater-based mud, oil-based mud, and even in cased holes.</p>
-        
-                <p data-time="1:20"><b>Physics of the Measurement</b></p>
-                <p data-time="1:20">Now let's get into the details of the principle of operation. It turns out that neutron porosity tools don't measure porosity directly. Instead, they measure the abundance of low-energy neutrons in a formation.</p>
-                <p data-time="1:40">First, consider the process of neutron emission. The tool uses a chemical radioactive source to emit high-energy neutrons into the formation. These neutrons collide with atomic nuclei in the formation, losing energy in a process called 'thermalization'.</p>
-                <p data-time="2:00">Hydrogen atoms, mainly present in the fluids (oil, gas, water) that occupy pore spaces in a formation, are particularly effective at slowing down neutrons. As the neutrons lose energy and reach thermal levels, they can be detected by the tool's sensors.</p>
-                <p data-time="2:20">The number of detected low-energy neutrons is inversely related to the hydrogen content. Higher hydrogen content, indicating higher fluid content and thus higher porosity, results in fewer neutrons reaching the detectors. By calibrating the tool's response to known porosity values, we can interpret the measurements to estimate formation porosity.</p>
-                <p data-time="2:40">In summary, neutron porosity tools emit high-energy neutrons, measure the resulting low-energy neutrons after interaction with the formation, and interpret this data to estimate hydrogen content. Since hydrogen is primarily found in pore fluids, this measurement serves as an indicator for formation porosity.</p>
-        
-                <p data-time="3:00"><b>Neutron Source</b></p>
-                <p data-time="3:00">The neutron source in porosity tools typically involves a chemical source, such as americium-beryllium (AmBe) or californium-252 (Cf-252). These sources emit high-energy neutrons that interact with the surrounding formation.</p>
-                <p data-time="3:20">Nuclear logging tools typically use two detectors: a short-spaced (SS) detector close to the radioactive source and a long-spaced (LS) detector further away. The ratio of their readings, called the SS/LS ratio, increases with porosity.</p>
-                <p data-time="3:40">Different rock types affect the SS/LS ratio differently, helping in determining lithology. For instance, dolomite slows neutrons efficiently, resulting in a higher SS/LS ratio than limestone, while quartz sandstone is less efficient, leading to a lower SS/LS ratio.</p>
-        
-                <p data-time="4:00"><b>Energy Levels</b></p>
-                <p data-time="4:00">We previously mentioned that the chemical source emits high-energy neutrons and that detectors measure thermal neutrons. To better understand this, let's look at the energy levels of neutrons.</p>
-                <p data-time="4:20">Energy levels are expressed in a unit called "electron volt" (eV). For example, a neutron with an energy of 1 MeV (mega-electron volt) has the same striking power as an electron accelerated through a 1,000,000 volt potential.</p>
-        
-                <p data-time="4:40"><b>The Slowing of Neutrons</b></p>
-                <p data-time="4:40">Let's explore how neutrons lose energy in the formation. The primary mechanism is through elastic collisions with atomic nuclei, similar to billiard balls colliding.</p>
-                <p data-time="5:00">Hydrogen can cause a neutron to lose about 50% of its energy in a single hit. While other elements can also slow neutrons, they're not nearly as effective as hydrogen.</p>
-                <p data-time="5:20">Two important concepts to understand the neutron slowing process are the Slowing Down Cross Section, which measures how efficiently an element can slow down fast neutrons to a detectable thermal level, and the Capture Cross Section, which represents the likelihood of a nucleus capturing a thermal neutron.</p>
-        
-                <p data-time="5:40"><b>The Borehole Problem</b></p>
-                <p data-time="5:40">We mentioned that a few corrections should be applied to neutron porosity tools measurements. Let's begin by analyzing borehole size.</p>
-                <p data-time="6:00">Borehole size influences the count rate. The larger the hole size, the larger the volume of borehole fluid (and, therefore, hydrogen) that neutrons must pass through, resulting in lower count rates.</p>
-                <p data-time="6:20">An increase in the salinity of the borehole fluid results in two competing effects: increased thermal neutron capture cross-section and decreased hydrogen concentration. The second effect predominates, significantly influencing the count rates measured by a thermal neutron detector.</p>
-                <p data-time="6:40">Detector stand-off, the physical separation between a detector and the formation, also significantly impacts the count rate. While decentralizers minimize stand-off effects, other factors like mudcake, irregular conditions, casing, and cement sheath contribute to stand-off and require real-time or post-processed corrections.</p>
-        
-                <p data-time="7:00"><b>Calibration</b></p>
-                <p data-time="7:00">So far, we've learned that the tool measures a ratio of thermal neutrons captured by the detectors. But this ratio by itself doesn't tell us much about the formation. What we really want to know is the porosity, and that's where calibration comes in.</p>
-                <p data-time="7:20">Service companies use a practical calibration method. They start with a standard tool that's calibrated in the API pit. This tool measures the SS/LS ratio in a simpler calibrator, usually a water tank, which then becomes the reference for all other tools.</p>
-                <p data-time="7:40">During shop calibration, each neutron tool is calibrated in this water tank. A sensitivity factor is calculated to match its ratio with the standard tool's ratio, ensuring consistent readings across all tools.</p>
-                <p data-time="8:00">For field operations, a 'verifier check block' or 'snow block' is used. This portable reference is checked before and after each logging run to make sure the tool's calibration stays stable.</p>
-        
-                <p data-time="8:20"><b>Closing Remarks</b></p>
-                <p data-time="8:20">In summary, neutron porosity tools are essential for determining formation porosity, lithology, and other critical formation properties. Understanding their principles, the importance of calibration, and how borehole conditions affect the measurements is key to effectively using these tools in the field.</p>
-                <p data-time="8:40">Ricardo: Thank you for joining this module. I hope you found it informative. Feel free to review the material, and don't hesitate to reach out if you have any questions. See you in the next chapter!</p>
+
+        <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe id="vimeo-player" src="https://player.vimeo.com/video/999324463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        title="Chapter_1"></iframe>
             </div>
         </div>
-        
-        
+
+        <div class="script-container" id="script-container">
+            <div id="script">
+                <p data-time="0"><b>Module Overview</b></p>
+                <p data-time="0">Ricardo: Welcome to this section about neutron porosity tools.</p>
+            
+                <p data-time="5"><b>Learning Objectives</b></p>
+                <p data-time="5">Today, we'll explore their applications, logging conditions, and the principle of operation. We'll also see how the borehole conditions affect neutron porosity tools, and why they generally use dual detectors, ending with a discussion on equivalent porosities. Let's begin!</p>
+            
+                <p data-time="10"><b>Applications</b></p>
+                <p data-time="10">The primary objective of a neutron porosity tool is to determine formation porosity and assist in lithology identification. Additionally, they can also aid in the shale volume determination and gas-bearing formation identification when combined with density or sonic porosity data.</p>
+            
+                <p data-time="40"><b>Logging Conditions</b></p>
+                <p data-time="40">Certainly, logging conditions significantly impact the accuracy of neutron porosity measurements. Factors such as borehole size, salinity, and detector stand-off, which is  any physical separation between a detector and the formation.</p>
+                <p data-time="60">Well, all these factors  must be considered to ensure reliable data, but in general terms neutron porosity tools can be used on:  fresh water-based mud,  saltwater-based mud,  oil-based mud and even on cased holes.</p>
+            
+                <p data-time="80"><b>Physics of the Measurement</b></p>
+                <p data-time="80">Now let's get into the details of the principle of operation. It turns out that neutron porosity tools don't measure porosity directly. Instead, they measure the abundance of low-energy neutrons in a formation.</p>
+                <p data-time="90">You might be wondering and how is that related with porosity, well here is a brief description: </p>
+                <p data-time="100">First, consider the process of neutron emission, the tool uses a chemical radioactive source to emit high-energy neutrons into the formation.</p>
+
+
+
+                <p data-time="120">Then these neutrons collide with atomic nuclei in the formation. With each collision, they lose energy, a process called 'thermalization'.</p>
+                <p data-time="140">Then a key player comes into place: Hydrogen! Hydrogen atoms are particularly effective at slowing down neutrons because they have nearly the same mass. This is crucial because hydrogen is mainly present in the fluids (oil, gas, water) that occupy pore spaces in a formation.</p>
+                <p data-time="150">As the neutrons lose energy and reach thermal levels, they can be detected by the tool's sensors. By the way, the tool typically has two detectors at different distances from the source to improve accuracy.</p>
+                <p data-time="160">And here is the relationship: The number of detected low-energy neutrons is inversely related to the hydrogen content. Which means, higher hydrogen content (indicating higher fluid content and thus higher porosity) results in fewer neutrons reaching the detectors.</p>
+                <p data-time="170">Then, by calibrating the tool's response to known porosity values, we can interpret the measurements to estimate formation porosity.</p>
+                <p data-time="180">Again, in summary, neutron porosity tools emit high-energy neutrons, but measure the resulting low-energy neutrons after interaction with the formation, and interpret this data to estimate hydrogen content. Since hydrogen is primarily found in pore fluids, this measurement serves as an indicator for formation porosity, allowing us to indirectly assess the potential fluid-holding capacity of the rock.</p>
+
+
+                <p data-time="190"><b>Neutron Source</b></p>
+                <p data-time="190">The neutron source in porosity tools typically involves a chemical source, such as americium-beryllium (AmBe) or californium-252 (Cf-252). These sources emit high-energy neutrons that interact with the surrounding formation.</p>
+                <p data-time="200">Nuclear logging tools typically use two detectors: a short-spaced (SS) detector close to the radioactive source and a long-spaced (LS) detector further away. The ratio of their readings, is called the SS/LS ratio</p>
+                <p data-time="210">As porosity increases, the SS/LS ratio also increases. This is because more porous rocks contain more hydrogen (in water or hydrocarbons), which slows down neutrons more effectively. This leads to a greater difference between the SS and LS detector readings.</p>
+                <p data-time="220">Different rock types affect the SS/LS ratio differently which also helps in determining lithology, for instance: dolomite slows neutrons efficiently, resulting in a higher SS/LS ratio than limestone and quartz sandstone is less efficient at slowing neutrons, leading to a lower SS/LS ratio than limestone.</p>
+            
+                <p data-time="240"><b>Energy Levels</b></p>
+                <p data-time="240">We previously mentioned that the chemical source emits high energy neutrons and that detectors measure thermal neutrons. To better understand this here we can see the energy levels of neutrons.</p>
+                <p data-time="260">Since energy levels are expressed in a unit called "electron volt" (eV), let's define it: an electron volt(eV)  is a unit of energy equal to the kinetic energy acquired by an electron passing through a potential difference of 1 volt. For example, a neutron with an energy of 1 Mev (mega-electron volt) would have the same striking power as an electron accelerated through a 1,000,000 volt potential.</p>
+
+            
+                <p data-time="280"><b>The Slowing of Neutrons</b></p>
+                <p data-time="280">Let's explore how neutrons lose energy in the formation. The primary mechanism is through elastic collisions with atomic nuclei, similar to billiard balls colliding.</p>
+                <p data-time="290">Hydrogen can cause a neutron to lose about 50% of its energy in a single hit. While other elements can also slow neutrons, they're not nearly as effective as hydrogen.</p>
+                <p data-time="300">To better understand the neutron slowing process, we need to introduce two important concepts:</p>
+                <p data-time="310">First: the slowing Down Cross Section, shown in the green column of the table: This measures how efficiently an element can slow down fast neutrons to a detectable thermal level. </p>
+                <p data-time="320">The second key concept is Capture Cross Section: shown in the red column of the table.</p>
+                <p data-time="330">Once a neutron is slowed to thermal level, it randomly moves around until it's captured by a nucleus. The capture cross section represents the likelihood of a nucleus capturing a thermal neutron.</p>
+                <p data-time="340">Understanding these concepts helps us interpret and account for the effects of different elements in the formation</p>
+
+
+            
+                <p data-time="345"><b>The Borehole Problem</b></p>
+                <p data-time="345">We mentioned that a few corrections should be applied to neutron porosity tools measurements. Let's begin by analyzing borehole size.</p>
+                <p data-time="360">Borehole size also has an influence on the count rate. The larger the hole size, the larger the volume of borehole fluid (and, therefore, hydrogen) that neutrons must pass through, resulting in lower count rates. The effect of hole size on the count rate is bigger in situations where the borehole is filled with a high salinity drilling fluid.</p>
+                <p data-time="380">To understand how salinity affects neutron porosity tool measurements , consider that an increase in the salinity of the borehole fluid results in two competing effects that influence the count rate measured by a thermal neutron detector. These effects are: 1. Added Sodium chloride (NaCl) increases the thermal neutron capture cross section of the borehole fluid and 2. Added Sodium chloride (NaCl) decreases the hydrogen concentration within the borehole fluid.</p>
+                <p data-time="400">The second of these two competing effects predominates, resulting in count rates that are significantly influenced by borehole salinity. Fast neutrons emitted from the source interact immediately with the nuclei of atoms present in the borehole fluid. Because these neutrons are not at thermal energy levels so close to their source, they are not greatly influenced by the capture properties of the borehole fluid. They are, however, significantly affected by the decrease in hydrogen concentration as borehole salinity increases. Overall, an increase in borehole salinity results in an increase in the count rate.</p>
+                <p data-time="400">Lastly, detector stand-off, the physical separation between a detector and the formation, significantly impacts count rate in nuclear logging. While decentralizers minimize stand-off effects, other factors remain. In open holes, mudcake and irregular conditions contribute to stand-off, with the impact depending on the slowing down and capture properties of the intervening material. In cased holes, casing and cement sheath create stand-off, with their properties and thicknesses determining the effect on count rate. Despite decentralization, residual stand-off effects require real-time or post-processed corrections.</p>
+
+            
+                <p data-time="420"><b>Calibration</b></p>
+                <p data-time="420">So far, we've learned that the tool measures a ratio of thermal neutrons captured by the detectors. But this ratio by itself doesn't tell us much about the formation, right? What we really want to know is the porosity. So, how do we get from this ratio to porosity? That's where calibration comes in.</p>
+                <p data-time="440">Service companies use a practical calibration method. They start with a standard tool that's calibrated in the API pit. This tool measures the SS/LS ratio in a simpler calibrator, usually a water tank, which then becomes the reference for all other tools.</p>
+                <p data-time="460"> During shop calibration, each neutron tool is calibrated in this water tank. A sensitivity factor is calculated to match its ratio with the standard tool's ratio, ensuring consistent readings across all tools.</p>
+                <p data-time="480">For field operations, a 'verifier check block' or 'snow block' is used. This portable reference is checked before and after each logging run to make sure the tool's calibration stays stable.</p>
+                <p data-time="480">This whole process: shop calibration, field and post verifications ensures that all neutron tools, no matter the small manufacturing differences, provide consistent and reliable porosity measurements in the field.</p>
+                <p data-time="480">The neutron tool's SS/LS ratio is initially calibrated assuming a type of rock matrix and a type of fluid, for example:  fresh water-filled limestone. However, this ratio changes with different lithologies and fluids. Before logging, the user, in this case the field professional from the service company, selects a "matrix" or neutron lithology that best represents the formation. If the assumed lithology is incorrect, the neutron porosity will be incorrect, but can be recalculated later using the correct lithology to ensure accurate results.</p>
+
+
+                <p data-time="500"><b>Closing Remarks</b></p>
+                <p data-time="500">Well, we've covered a lot of ground in this module, from the basic principles and applications of neutron porosity tools to the detailed factors affecting their measurements and the importance of calibration. Thank you for joining this session on neutron porosity tools.</p>
+            </div>
+            
+            
+            
+            
+            
         </div>
     </div>
 
-    <script>
-        const video = document.getElementById('video');
-        const scriptWrapper = document.getElementById('script-wrapper');
-        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+    <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Vimeo Player setup
+        const iframe = document.getElementById('vimeo-player');
+        const player = new Vimeo.Player(iframe);
 
-        function highlightCurrentScript() {
-            const currentTime = video.currentTime;
+        // Elements related to the script highlighting and scrolling
+        const scriptContainer = document.getElementById('script-container');
+        const scriptParagraphs = document.querySelectorAll('#script p');
 
-            scriptParagraphs.forEach(p => {
-                const pTime = parseTime(p.getAttribute('data-time'));
-                if (currentTime >= pTime) {
-                    clearHighlights();
-                    p.classList.add('highlight');
-                    scrollToElement(p);
+        // Handle video time updates
+        player.on('timeupdate', function(event) {
+            const currentTime = event.seconds;
+
+            scriptParagraphs.forEach(paragraph => {
+                const paragraphTime = parseFloat(paragraph.getAttribute('data-time'));
+                if (currentTime >= paragraphTime && currentTime < paragraphTime + 5) {
+                    scriptParagraphs.forEach(p => p.classList.remove('highlight'));
+                    paragraph.classList.add('highlight');
+                    
+                    // Scroll into view
+                    scriptContainer.scrollTop = paragraph.offsetTop - scriptContainer.offsetTop;
                 }
             });
-        }
-
-        function clearHighlights() {
-            scriptParagraphs.forEach(p => {
-                p.classList.remove('highlight');
-            });
-        }
-
-        function scrollToElement(element) {
-            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
-        }
-
-        function parseTime(timeString) {
-            const [minutes, seconds] = timeString.split(':').map(parseFloat);
-            return minutes * 60 + seconds;
-        }
-
-        scriptParagraphs.forEach(p => {
-            p.addEventListener('click', () => {
-                const pTime = parseTime(p.getAttribute('data-time'));
-                video.currentTime = pTime;
-                video.play();
-            });
         });
 
-        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
-            link.addEventListener('click', (event) => {
+        // Handle clicks on the menu items to sync with the video
+        const menuItems = document.querySelectorAll('.menu-container a[data-time]');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(event) {
                 event.preventDefault();
-                const time = parseFloat(event.target.getAttribute('data-time'));
-                video.currentTime = time;
-                video.play();
+
+                // Get the time from the data-time attribute
+                const time = item.getAttribute('data-time');
+                const timeParts = time.split(':');
+                const seconds = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+                // Set the player to the clicked time
+                player.setCurrentTime(seconds).then(function() {
+                    // Video time is set
+                }).catch(function(error) {
+                    console.error('Error setting video time:', error);
+                });
             });
         });
+    });
+</script>
 
-        video.addEventListener('timeupdate', highlightCurrentScript);
-    </script>
 </body>
 </html>

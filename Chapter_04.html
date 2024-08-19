@@ -3,206 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 4</title>
+    <title>Wireline Logging Tutorial</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include the Open Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
+            margin: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
-
-        .nav-wrapper {
-            width: 15%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-        }
-
-        .nav-wrapper ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .nav-wrapper ul li {
-            margin: 10px 0;
-        }
-
-        .nav-wrapper ul li a {
-            text-decoration: none;
-            color: #000;
-            cursor: pointer;
-        }
-
-        .nav-wrapper ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
+        .main-container {
             display: flex;
             flex-direction: row;
+            align-items: flex-start;
             justify-content: space-between;
-            margin: 20px;
-            width: 85%;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .video-wrapper {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 20px;
+        .menu-container {
+            flex: 0 0 15%; /* 15% of the width for the menu */
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            max-height: 100vh; /* Set maximum height to viewport height */
         }
-
-        .script-wrapper {
-            flex: 1;
-            max-width: 35%;
-            overflow-y: scroll;
-            height: 450px;
-            border-left: 1px solid #ddd;
-            padding-left: 20px;
+        .menu-container a {
+            display: block;
+            
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
         }
-
+        .menu-container a:hover {
+            background-color: #ddd;
+        }
+        .video-container {
+            padding-top: 50px;
+            flex: 0 0 50%; /* 50% of the width for the video */
+            position: relative;
+            background-color: #fff;
+        }
+        .script-container {
+            padding-top: 50px;
+            flex: 0 0 25%; /* 25% of the width for the script */
+            background-color: #fff;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 100vh;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
         .highlight {
-            background-color: #d4daf6;
-            border-radius: 10px;
-            padding: 5px;
+            background-color: rgba(173, 216, 230, 0.3); /* Light blue background */
         }
-
-        p {
-            margin: 10px 0;
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .menu-container, .video-container, .script-container {
+                flex: 1 0 auto;
+                width: 100%;
+                height: auto;
+            }
+            .menu-container {
+                order: 2;
+            }
+            .video-container {
+                order: 1;
+            }
+            .script-container {
+                order: 3;
+            }
         }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNRQGQ8HJ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WNRQGQ8HJ1');
-</script>
 </head>
 <body>
-    <div class="nav-wrapper">
-        <h2>Chapter 4 - Natural Gamma Ray</h2>
-        <ul>
-            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
-            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Learning objectives</a></li>
-            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Natural Gamma Ray Tools</a></li>
-            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Applications</a></li>
-            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Logging Conditions</a></li>
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Physics of the Measurement</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Radioactive Decay Processes</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Scintillation Detectors	</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Gamma Ray Units</a></li>           
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Calibration Process</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> Factors Influencing Count Rates</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Shop, Field, and Post Calibration</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Summary</a></li>  
-            <li><a href="https://ricardocalleja.com/Manuals/Chapter_4_Gamma_ray.pdf" download>Manual Chapter 4</a></li>
-            <li><a href="https://ricardocalleja.com/">Back to main menu</a></li>
-
-        </ul>
-    </div>
-    
-    <div class="container">
-        <div class="video-wrapper">
-            <video id="video" controls>
-                <source src="Chapter_01_v1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <div class="main-container">
+        <div class="menu-container">
+            <a href="#"><h1>Chapter 4 - Natural Gamma Rays</h1></a>
+            <a href="#" data-time="00:01">Module Overview</a>
+            <a href="#" data-time="00:29">Learning objectives</a>
+            <a href="#" data-time="00:49">Natural Gamma Ray Tools</a>
+            <a href="#" data-time="01:06">Applications</a>
+            <a href="#" data-time="02:18">Logging Conditions</a>
+            <a href="#" data-time="04:39">Physics of the Measurement</a>
+            <a href="#" data-time="06:24">Radioactive Decay Processes</a>
+            <a href="#" data-time="08:20">Scintillation Detectors</a>
+            <a href="#" data-time="08:20">Gamma Ray Units</a>
+            <a href="#" data-time="08:20">Calibration Process</a>
+            <a href="https://ricardocalleja.com/Manuals/Chapter_4_Gamma_ray.pdf" download>Manual Chapter 4</a>
+            <a href="https://ricardocalleja.com/">Back to main menu</a>
         </div>
-        
-        <div class="script-wrapper" id="script-wrapper">
-            <div id="script">
-                <p data-time="0:00"><b>Module Overview</b></p>
-                <p data-time="0:00">Ricardo: Hi there, and welcome to the fourth chapter of this course on "Natural Gamma Ray." In this section, we will cover the principles and applications of natural gamma ray tools used in wireline logging.</p>
-        
-                <p data-time="0:05"><b>Learning Objectives</b></p>
-                <p data-time="0:05">By the end of this module, you will be able to: Understand the fundamental concepts behind natural gamma ray logging, its key applications, logging conditions, and the physics behind the measurement. We will also explore the tools and methods used, as well as the calibration process. Let's get started!</p>
-        
-                <p data-time="0:10"><b>Natural Gamma Ray Tools</b></p>
-                <p data-time="0:10">Natural gamma ray tools measure the amount of naturally occurring gamma radiation emitted by a formation. These gamma rays are produced by the radioactive decay of elements like potassium, uranium, and thorium, which occur in variable amounts in all formations.</p>
-                <p data-time="0:30">To be clear, these tools do not emit any radiation, so there is no source in the tool; they just read the natural radiation in the area.</p>
-        
-                <p data-time="0:50"><b>Applications of Natural Gamma Ray Tools</b></p>
-                <p data-time="0:50">Why do we measure that? Well... The primary application of natural gamma ray tools is to assist in determining formation lithology. Different rocks contain varying amounts of potassium, uranium, and thorium, which helps in lithology determination when combined with other measurements. Gamma ray tools also estimate the volume of shale and correlate log responses between wells.</p>
-                <p data-time="1:20">Let’s talk a bit more about the importance of correlation. After an oil well is drilled, the first logging run, here shown in red, establishes the depth profile...</p>
-        
-                <p data-time="1:50"><b>Logging Conditions</b></p>
-                <p data-time="1:50">When logging with natural gamma ray tools, it’s important to consider the borehole conditions. These tools are versatile and can be used in both open-hole and cased-hole environments. The logging speed, borehole size, and drilling mud type can all influence the gamma ray measurements, so it’s crucial to account for these factors during the logging operation.</p>
-        
-                <p data-time="2:20"><b>Physics of the Measurement</b></p>
-                <p data-time="2:20">Let’s move on to the physics behind how these tools work. Natural gamma rays are high-energy photons emitted during the decay of radioactive elements. As these gamma rays pass through the formation and into the borehole, they interact with the electrons in the formation material. This interaction is what the gamma ray tools detect and measure.</p>
-                <p data-time="2:50">The intensity of the detected gamma rays is proportional to the concentration of radioactive elements in the formation. By analyzing this data, we can infer the lithology and other properties of the formation.</p>
-        
-                <p data-time="3:20"><b>Tools and Methods</b></p>
-                <p data-time="3:20">There are several different tools and methods used for natural gamma ray logging. Some tools focus on total gamma ray counts, while others can differentiate between the contributions from potassium, uranium, and thorium. This allows for more detailed lithological interpretations.</p>
-                <p data-time="3:50">We also have spectral gamma ray tools that provide a more detailed analysis by measuring the energy spectrum of the detected gamma rays, which helps in distinguishing between different radioactive elements.</p>
-        
-                <p data-time="4:20"><b>Calibration Process</b></p>
-                <p data-time="4:20">Lastly, let's talk about the calibration process. Calibration is crucial for accurate gamma ray measurements. It typically involves using known radioactive sources to calibrate the tool's response. This ensures that the measurements are consistent and reliable across different logging runs and conditions.</p>
-                <p data-time="4:50">Field calibration checks are also performed regularly to maintain the tool's accuracy during operations. Proper calibration ensures that the gamma ray logs can be used for accurate formation evaluation and correlation between wells.</p>
-        
-                <p data-time="5:20"><b>Summary</b></p>
-                <p data-time="5:20">In summary, natural gamma ray tools are essential in wireline logging for formation evaluation, lithology determination, and correlation between wells. Understanding their principles, applications, and the importance of calibration is key to making the most out of these tools in the field.</p>
+
+        <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe id="vimeo-player" src="https://player.vimeo.com/video/999324463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        title="Chapter_1"></iframe>
             </div>
         </div>
-        
+
+        <div class="script-container" id="script-container">
+            <div id="script">
+                <p data-time="0"><b>Module Overview</b></p>
+                <p data-time="0">Hey everyone, welcome to the chapter on "Natural Gamma Ray". This chapter will cover the principles and applications of natural gamma ray tools used in wireline logging.                </p>
+            
+                <p data-time="5"><b>Learning Objectives</b></p>
+                <p data-time="5">Here, you will learn about the fundamental concepts behind natural gamma ray logging, understand its key applications, logging conditions, and the physics behind the measurement. We'll also explore the tools and methods used, as well as the calibration process. Let's get started!</p>
+            
+                <p data-time="10"><b>Natural Gamma Ray Tools</b></p>
+                <p data-time="10">Natural gamma ray tools measure the amount of naturally occurring gamma radiation emitted by a formation. These gamma rays are produced by the radioactive decay of elements like potassium, uranium, and thorium, which occur in variable amounts in all formations.</p>
+                <p data-time="30">To be clear, these tools do not emit any radiation, so there is no source in the tool; they just read the natural radiation in the area.</p>
+            
+                <p data-time="50"><b>Applications</b></p>
+                <p data-time="50">And why do we measure that? Well... The primary application of natural gamma ray tools is to assist in determining formation lithology. Different rocks contain varying amounts of potassium, uranium, and thorium, which helps in lithology determination when combined with other measurements. Gamma ray tools also estimate the volume of shale and correlate log responses between wells.</p>
+                <p data-time="80">Let’s talk a bit more about the importance of correlation. After an oil well is drilled, the first logging run, here shown in red, establishes the depth profile...</p>
+                <p data-time="90">After an oil well is drilled, the first logging run, here shown in red,  establishes the depth profile of the well. This initial log serves as the reference point. If subsequent logging runs are needed, all of these must be adjusted or correlated to the initial log to ensure accuracy and consistency.</p>
+                <p data-time="100">In the image, we see a well  being logged with the Gamma Ray curve plotted against depth. If we need to log the well  again in the future, the new data, shown in green, must be aligned with the initial log, often the Open Hole (OH) triple or quad combo. This alignment is crucial for accurate comparison and analysis.</p>
+                <p data-time="110">This is important because wells often require multiple interventions over their lifetime. For instance, after the initial logging, there might be a need for a cement evaluation log or a perforating job. Gamma rays behave similarly once they pass through the same formation and the deflections of the curve should correspond with the initial profile.</p>
+
+                <p data-time="115"><b>Logging Conditions</b></p>
+                <p data-time="115">Now, let's discuss the logging conditions. Natural gamma ray tools are actually highly versatile tools and can acquire data under various well conditions, including open and cased holes and in any type of drilling fluid. Just keep in mind that these tools measure the total gamma radiation resulting from the decay of potassium, uranium, and thorium. For more detailed analysis of specific concentrations of these elements, a different tool called the "spectral gamma ray" is used. </p>
+                <p data-time="120">However, for general purposes and, in standard triple or quad combos, natural gamma ray tools are typically employed.</p>
+
+            
+                <p data-time="140"><b>Physics of the Measurement</b></p>
+                <p data-time="140">To get into the physics of Gamma rays, consider these as high-energy electromagnetic radiation emitted from the nucleus of an atom during radioactive decay. These rays are photons with no mass or charge, and they are traveling at the speed of light. Potassium-40, uranium-238, and thorium-232 are the primary elements involved in these decay processes.</p>
+                <p data-time="170">The intensity of the detected gamma rays is proportional to the concentration of radioactive elements in the formation. By analyzing this data, we can infer the lithology and other properties of the formation.</p>
+            
+                <p data-time="200"><b>Radioactive Decay Processes</b></p>
+                <p data-time="200">Talking about the decay process, Potassium-40 decays to argon-40, uranium-238 to lead, and thorium-232 also to lead, each with their own complex sequences and half-lives and this decay processes involve gamma ray emissions, which we measure to determine the presence of these elements in formations.</p>
+
+                <p data-time="200"><b>Scintillation Detectors</b></p>
+                <p data-time="200">Natural Gamma Ray Tools,  utilize scintillation detectors to detect gamma radiation. When a gamma ray from the formation interacts with a man-made crystal, typically made of sodium iodide (NaI) with thallium impurities, it produces a tiny flash of visible light. This flash, or scintillation, is detected by a photo-sensitive device, which then converts it into an electrical signal.</p>
+                <p data-time="210">The sodium iodide (NaI) crystal's thallium impurities play a crucial role. When excited by a gamma ray, they emit a photon in the visible spectrum. This light pulse is detected by a photo-multiplier tube (PMT), which amplifies the signal through a series of dynodes, ultimately producing an electrical pulse.</p>
+                <p data-time="220">This pulse is counted as a single gamma ray, with the count rate proportional to the amounts of potassium, uranium, and thorium in the formation.</p>
+                <p data-time="230">In tools like the Spectral Gamma Ray, the height of the electrical pulse can also determine the energy level of the detected gamma ray, allowing for detailed analysis of the formation's composition.</p>
+
+
+                <p data-time="250"><b>Gamma Ray Units</b></p>
+                <p data-time="250">When we see a Gamma Ray curve plotted in a log, we see that the units are Gamma API. Let's understand this type of unit: The gamma ray measurement is converted to engineering units through calibration. The American Petroleum Institute (API) developed a standard calibration method to ensure consistent gamma ray responses across different tools and service companies.</p>
+
+                <p data-time="260"><b>Calibration Process</b></p>
+                <p data-time="260">Calibration involves measuring the count rates of gamma radiation in a test pit with known concentrations of radioactive elements. Here on the left you can see the characteristics of the API Gamma Ray test Pit. With this, the sensitivity factor is calculated and is used to convert raw measurements into Gamma API (GAPI) units.</p>
+                <p data-time="290">For sure count rates can vary due to factors like the type and size of the scintillation crystal, tool housing composition, and even minor impurities in the detector crystals but still a good working GR tool will show the same response every time it passes through the same formation.</p>
+                <p data-time="300">For anyone related with field operations, please know that Gamma ray tools must be calibrated at the shop, verified at the wellsite before running in the hole, and checked again after logging to ensure proper functioning. So if you have the opportunity to assist in one logging operation involving a gamma ray sensor, keep an eye on the field calibration, a thorium blanket should be used before and after running in hole with the Gamma Ray sensor.</p>
+                <p data-time="320">In summary, natural gamma ray tools are essential for formation evaluation, providing information about lithology, shale volume, and correlation of geologic structures.</p>
+
+            </div>
+            
+            
+            
+            
         </div>
     </div>
 
-    <script>
-        const video = document.getElementById('video');
-        const scriptWrapper = document.getElementById('script-wrapper');
-        const scriptParagraphs = scriptWrapper.querySelectorAll('p');
+    <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Vimeo Player setup
+        const iframe = document.getElementById('vimeo-player');
+        const player = new Vimeo.Player(iframe);
 
-        function highlightCurrentScript() {
-            const currentTime = video.currentTime;
+        // Elements related to the script highlighting and scrolling
+        const scriptContainer = document.getElementById('script-container');
+        const scriptParagraphs = document.querySelectorAll('#script p');
 
-            scriptParagraphs.forEach(p => {
-                const pTime = parseTime(p.getAttribute('data-time'));
-                if (currentTime >= pTime) {
-                    clearHighlights();
-                    p.classList.add('highlight');
-                    scrollToElement(p);
+        // Handle video time updates
+        player.on('timeupdate', function(event) {
+            const currentTime = event.seconds;
+
+            scriptParagraphs.forEach(paragraph => {
+                const paragraphTime = parseFloat(paragraph.getAttribute('data-time'));
+                if (currentTime >= paragraphTime && currentTime < paragraphTime + 5) {
+                    scriptParagraphs.forEach(p => p.classList.remove('highlight'));
+                    paragraph.classList.add('highlight');
+                    
+                    // Scroll into view
+                    scriptContainer.scrollTop = paragraph.offsetTop - scriptContainer.offsetTop;
                 }
             });
-        }
-
-        function clearHighlights() {
-            scriptParagraphs.forEach(p => {
-                p.classList.remove('highlight');
-            });
-        }
-
-        function scrollToElement(element) {
-            scriptWrapper.scrollTop = element.offsetTop - scriptWrapper.offsetTop;
-        }
-
-        function parseTime(timeString) {
-            const [minutes, seconds] = timeString.split(':').map(parseFloat);
-            return minutes * 60 + seconds;
-        }
-
-        scriptParagraphs.forEach(p => {
-            p.addEventListener('click', () => {
-                const pTime = parseTime(p.getAttribute('data-time'));
-                video.currentTime = pTime;
-                video.play();
-            });
         });
 
-        document.querySelectorAll('.nav-wrapper ul li a').forEach(link => {
-            link.addEventListener('click', (event) => {
+        // Handle clicks on the menu items to sync with the video
+        const menuItems = document.querySelectorAll('.menu-container a[data-time]');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(event) {
                 event.preventDefault();
-                const time = parseFloat(event.target.getAttribute('data-time'));
-                video.currentTime = time;
-                video.play();
+
+                // Get the time from the data-time attribute
+                const time = item.getAttribute('data-time');
+                const timeParts = time.split(':');
+                const seconds = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+                // Set the player to the clicked time
+                player.setCurrentTime(seconds).then(function() {
+                    // Video time is set
+                }).catch(function(error) {
+                    console.error('Error setting video time:', error);
+                });
             });
         });
+    });
+</script>
 
-        video.addEventListener('timeupdate', highlightCurrentScript);
-    </script>
 </body>
 </html>

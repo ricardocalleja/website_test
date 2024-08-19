@@ -3,241 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 1</title>
+    <title>Wireline Logging Tutorial</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include the Open Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
+            margin: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
-
-        .nav-wrapper {
-            width: 15%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-        }
-
-        .nav-wrapper ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .nav-wrapper ul li {
-            margin: 10px 0;
-        }
-
-        .nav-wrapper ul li a {
-            text-decoration: none;
-            color: #000;
-            cursor: pointer;
-        }
-
-        .nav-wrapper ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
+        .main-container {
             display: flex;
             flex-direction: row;
+            align-items: flex-start;
             justify-content: space-between;
-            margin: 20px;
-            width: 85%;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .video-wrapper {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 20px;
+        .menu-container {
+            flex: 0 0 15%; /* 15% of the width for the menu */
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            max-height: 100vh; /* Set maximum height to viewport height */
         }
-
-        .script-wrapper {
-            flex: 1;
-            max-width: 35%;
-            overflow-y: scroll;
-            height: 450px;
-            border-left: 1px solid #ddd;
-            padding-left: 20px;
+        .menu-container a {
+            display: block;
+            
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
         }
-
+        .menu-container a:hover {
+            background-color: #ddd;
+        }
+        .video-container {
+            padding-top: 50px;
+            flex: 0 0 50%; /* 50% of the width for the video */
+            position: relative;
+            background-color: #fff;
+        }
+        .script-container {
+            padding-top: 50px;
+            flex: 0 0 25%; /* 25% of the width for the script */
+            background-color: #fff;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 100vh;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
         .highlight {
-            background-color: #d4daf6; /*8ab4f8*/
-            border-radius: 10px; /* Rounded corners */
-            padding: 5px;
+            background-color: rgba(173, 216, 230, 0.3); /* Light blue background */
         }
-
-        p {
-            margin: 10px 0;
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .menu-container, .video-container, .script-container {
+                flex: 1 0 auto;
+                width: 100%;
+                height: auto;
+            }
+            .menu-container {
+                order: 2;
+            }
+            .video-container {
+                order: 1;
+            }
+            .script-container {
+                order: 3;
+            }
         }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNRQGQ8HJ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WNRQGQ8HJ1');
-</script>
 </head>
 <body>
-    <div class="nav-wrapper">
-        <h2>Chapter 1 - The Reservoir and the Logging Environment</h2>
-        <ul>
-            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Module Overview</a></li>
-            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Fundamental Formation Properties</a></li>
-            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Lithology</a></li>
-            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Porosity</a></li>
-            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Fluid Saturations</a></li>
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Permeability</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i> The Borehole Influence</a></li>
-            <li><a href="#" data-time="636"><i class="fas fa-play-circle"></i> Filtrate Invasion</a></li>
-            <p><a href="https://ricardocalleja.com/Manuals/Chapter_1_The_reservoir_and_the_logging_environment.pdf" download>Manual Chapter 1</a></p>
-            <p><a href="https://ricardocalleja.com/">Back to main menu</a></p>
-
-
-        </ul>
-    </div>
-    
-    <div class="container">
-        <iframe width="854" height="480" src="https://www.youtube.com/embed/JkhdTpOYiSo?si=4GGb4KilIJ_LsTa_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-
-        <div class="script-wrapper" id="script-wrapper">
-            <div id="script">
-                
-            <!-- Add your script here with timestamps -->
-
-            <p data-time="00"><b>Welcome</b></p>
-            <p data-time="00">Ricardo: Hey everyone, welcome to the first chapter of this course, "The Reservoir and the Logging Environment". </p>
-            
-            <p data-time="07"><b>Learning Objectives</b></p>
-            <p data-time="07">In this chapter, you will learn to identify key formation properties and recognize different rock types. Next, we'll get into understanding the significance and types of porosity and permeability. Finally, we will assess fluid saturations and understand the effects of borehole conditions and filtrate invasion. Let's get started!.</p>
-
-    
-            <p data-time="29"><b>Fundamental Formation Properties</b></p>
-            <p data-time="29">The basic purpose behind calling a wireline company is to get the “first look” at fundamental properties that are vital for evaluating the potential producibility of a hydrocarbon reservoir. These properties include: Lithology, Porosity, Fluid saturations, and Permeability.</p>
-            
-            <p data-time="49">Basic Wireline Services</p>
-            <p data-time="49">To get this valuable data, the first log to run is a triple-combo, which will provide information about resistivity, bulk density/neutron porosity, and gamma ray measurements. The difference with a quad-combo is that the latter includes sonic measurements.</p>
-            
-            <p data-time="66"><b>Lithology</b></p>
-            <p data-time="66">Now, let's get back to the fundamentals and begin with: Lithology, this is related to two key concepts: mineralogy and framework. Mineralogy refers to the assemblage of different minerals in a rock that determines its chemical properties, and the framework describes the physical structure of a rock and it determines the distribution of any void space.</p>
-            <p data-time="91">It's vital to be aware of this because different minerals and the physical structure of a rock affect log responses. For example, many sandstones contain a large percentage of the mineral quartz (SiO2), while others might contain equally large percentages of feldspar minerals. The log responses of these two sandstones will be different.</p>
-            <p data-time="113">In summary, understanding lithology is crucial for interpreting log responses accurately. Both the mineral composition and the physical structure of rocks determine how logging tools will respond. By recognizing the mineralogy and framework of the formation being logged, we can better assess the validity of the data and make more informed decisions about the reservoir's potential.</p>
-            
-            <p data-time="138"><b>Porosity</b></p>
-            <p data-time="138">Next let's see what is Porosity? It is represented by the Greek letter "Phi" (Φ), and is the measure of void spaces within a rock. Imagine if a quarter of a rock's volume is empty space—its porosity is 25%. These voids are crucial because they hold fluids like water and hydrocarbons. Simply put, higher porosity means more fluid capacity.</p>
-            <p data-time="163">Now, before we explore different types of porosity. Keep in mind that what’s important is the connectivity of the pores, here in the images shown in blue, this connectivity is relevant because Interconnected pores allow fluids to flow, whereas isolated pores do not.</p>
-            <p data-time="181">So we have primary porosity, formed during the initial deposition of sediments, like the spaces between grains in sandstone. Also, there's secondary porosity, which develops later due to processes like fracturing or dissolution.</p>
-            <p data-time="199">When we talk about porosity measurements, we also distinguish between total porosity (Φt), which includes all pore spaces, and effective porosity (Φe), which only accounts for interconnected pores.</p>
-            <p data-time="213">Neutron and density logs help estimate total porosity. On the other hand, acoustic logs, imagers, magnetic resonance, and core samples are great for determining effective porosity.</p>
-            <p data-time="226">Be aware that direct measurement of porosity comes from core samples, but often, we rely on log data. Combining neutron and density logs provides a more accurate total porosity estimate, while effective porosity from acoustic logs, imagers, magnetic resonance, and core samples are key for improving our understanding of fluid flow potential.</p>
-            <p data-time="251">And why is porosity so important? Because, these estimates are critical for determining how much fluid a formation contains and its flow potential. This information helps estimate hydrocarbon reserves and evaluate reservoir productivity, especially when core samples aren’t available. Keep in mind that accurate porosity data is essential for effective reservoir management and maximizing hydrocarbon recovery.</p>
-            
-            <p data-time="279"><b>Fluid Saturations</b></p>
-            <p data-time="279">Another fundamental property is Fluid saturations, such as water saturation (Sw) and hydrocarbon saturation (Sh), which indicate the relative proportions of these fluids. Sw and Sh must add up to 1.0. By measuring resistivity and porosity, we can estimate water saturation, giving us insights into the formation's fluid content.</p>
-            <p data-time="306">However, fluid saturations don't directly tell us the volumes of fluids that will be produced. For instance, a 25% water saturation doesn't mean one barrel of water for every three barrels of oil. Some water, known as bound water, is trapped and irreducible. Similarly, some oil may be immobile due to capillary forces or low viscosity.</p>
-            <p data-time="332">By combining porosity estimates with resistivity measurements at different depths, we can assess water saturation at various distances from the borehole. Comparing these saturations reveals if hydrocarbons were displaced during mud filtrate invasion. If water saturations differ at various depths, it indicates movable hydrocarbons, which are likely producible.</p>
-            <p data-time="356">While fluid saturations don't perfectly predict production volumes, they offer critical insights. They help determine if a formation is worth considering as a reservoir. Fluid saturation estimates, combined with other log data, enable clients to decide whether to complete or abandon a well and these estimates are vital for determining a well's potential and guiding decision-making.</p>
-            
-            <p data-time="384"><b>Permeability</b></p>
-            <p data-time="384">The last fundamental property covered in this module is: Permeability, known as the rock’s ability to allow fluids to pass through it. This characteristic is vital for hydrocarbon production. We measure permeability in a unit called darcies, though we often use millidarcies, which are one-thousandth of a darcy. When we talk about absolute permeability, we're referring to a rock’s capacity to transmit a fluid when it's completely saturated with that fluid—meaning it’s dealing with just one type of fluid at a time.</p>
-            <p data-time="416">However, rocks usually contain more than one fluid, like water and hydrocarbons, which are immiscible. Then, effective permeability measures the rock's ability to transmit one fluid in the presence of another. This depends on: the rock’s absolute permeability, capillary pressure, and the relative amounts of each fluid. In consequence, more water in the pores means it’s harder to transmit hydrocarbons, and vice versa.</p>
-            <p data-time="445">And while many logging measurements respond to permeability, none can quantify it directly. Accurate permeability values come from core samples. But logs can indicate permeability qualitatively. For instance, SP curve deflections and the separation of resistivity curves can hint at permeability. Knowing the lithology and porosity also helps. For example, sandstone with 30% porosity likely has high permeability, while carbonates may have low permeability due to isolated pore spaces.</p>
-            <p data-time="480">Advanced tools like formation testers and magnetic resonance logging, which are more expensive, provide better permeability estimates, often closely approximating the rock’s true permeability. But remember, logs alone can't give us a complete picture.</p>
-            
-            <p data-time="500"><b>The Borehole Influence</b></p>
-            <p data-time="500">Now you will learn how borehole properties can influence logging measurements. Since these measurements are acquired by sensors on toolstrings within the borehole, it's inevitable that borehole conditions will impact the data that is collected.</p>
-            <p data-time="517">Some tools, like the density porosity tool, use pad-mounted sensors equipped with collimated and shielded detectors. Collimated means that these special detectors help focus on the important signals while filtering out background noise. This design helps minimize or eliminate borehole interference, ensuring more accurate readings. However, other tools—such as resistivity, neutron, and gamma ray—operate with sensors surrounded by borehole fluid, making them more susceptible to borehole conditions.</p>
-            <p data-time="552">For resistivity measurements taken at various depths, borehole influence is more pronounced in shallow readings compared to deeper ones. This influence varies with borehole fluid salinity and diameter. Ideally, resistivity tools should be logged in their preferred borehole environment to minimize this impact. But, since perfect conditions are rare, we often need to assess and correct for borehole influence.</p>
-            <p data-time="581">To determine and correct for borehole influence, we control tool position using stand-offs or centralizers and measure borehole fluid salinity and diameter. Neutron and gamma ray measurements, for example, are affected by the attenuating effects of borehole fluid. More borehole fluid around the tool means fewer neutrons and gamma rays reach the detectors, and higher fluid density has a similar effect.</p>
-            <p data-time="609">Finally, corrections for borehole influence can be applied if borehole properties are known. This leads to more accurate formation property estimates from logs. But while some corrections are applied in real-time, most are left to the client's discretion, meaning that service companies often provide uncorrected results. Again, It's crucial to recognize borehole effects to apply the right corrections.
-            </p>
-            
-            <p data-time="636"><b>Filtrate Invasion</b></p>
-            <p data-time="636">Now, let's learn another concept called "filtrate invasion".</p>
-            <p data-time="643">First, let's imagine we have a block of rock representing our formation. Now, picture a drill bit creating a hole in this block, by the nature of this process the hole usually  gets filled with drilling mud.</p>
-            <p data-time="648">Now, because the formation is often permeable, something interesting happens. Part of the drilling mud seeps into the formation, and this invading fluid is called "filtrate".</p>
-            <p data-time="670">Let's break this down further. Closest to the borehole, we have an area where the filtrate concentration is the highest. This zone is heavily influenced by the drilling mud and is known as the "Flushed Zone".</p>
-            <p data-time="684">But not all of the drilling mud gets absorbed into the formation. Some of it starts to build up on the borehole wall, forming what we call "mud cake".</p>
-            <p data-time="695">Moving a bit further from the borehole, we encounter the "Transition Zone". This area has a mix of the original formation fluids and some of the filtrate.</p>
-            <p data-time="707">And finally, the furthest zone from the borehole is called the "Uninvaded Zone". This zone remains mostly unaffected by the drilling process and contains the original formation fluids.</p>
-            <p data-time="722">In summary, understanding invasion helps us to create different fluid distributions in the formation. Close to the borehole, the flushed zone contains a high proportion of mud filtrate, displacing original pore fluids. As we move further from the borehole, the transition zone has decreasing filtrate and increasing original fluids. Beyond this, in the uninvaded zone, pores are filled entirely with original fluids like water and hydrocarbons and logging measurements taken at deeper depths reflect these original conditions.</p>
-            <p data-time="762">To conclude, remember that filtrate invasion, rock properties, the borehole influence, and their effects on log responses make data validation and reservoir evaluation challenging. Understanding geology helps make sense of these factors. Even without extensive geological knowledge, considering how and why rocks differ can help validate log responses and improve reservoir evaluation.</p>
-
-            </div>
-
-            </div>
-            
+    <div class="main-container">
+        <div class="menu-container">
+            <a href="#"><h1>Chapter 1 - The Reservoir and the Logging Environment</h1></a>
+            <a href="#" data-time="00:01">Module Overview</a>
+            <a href="#" data-time="00:29">Fundamental Formation Properties</a>
+            <a href="#" data-time="00:49">Basic Wireline Services</a>
+            <a href="#" data-time="01:06">Lithology</a>
+            <a href="#" data-time="02:18">Porosity</a>
+            <a href="#" data-time="04:39">Fluid Saturations</a>
+            <a href="#" data-time="06:24">Permeability</a>
+            <a href="#" data-time="08:20">The Borehole Influence</a>
+            <a href="#" data-time="10:00">Filtrate Invasion</a>
+            <a href="https://ricardocalleja.com/Manuals/Chapter_1_The_reservoir_and_the_logging_environment.pdf" download>Manual Chapter 1</a>
+            <a href="https://ricardocalleja.com/">Back to main menu</a>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var video = document.getElementById("video");
-                var scriptWrapper = document.getElementById("script-wrapper");
-                var scriptElements = document.querySelectorAll("#script p");
-                var navLinks = document.querySelectorAll(".nav-wrapper ul li a");
+
+        <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe id="vimeo-player" src="https://player.vimeo.com/video/999324463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        title="Chapter_1"></iframe>
+            </div>
+        </div>
+
+        <div class="script-container" id="script-container">
+            <div id="script">
+                <!-- Add your script here with timestamps -->
+                <p data-time="00"><b>Welcome</b></p>
+                <p data-time="00">Ricardo: Hey everyone, welcome to the first chapter of this course, "The Reservoir and the Logging Environment". </p>
+                
+                <p data-time="07"><b>Learning Objectives</b></p>
+                <p data-time="07">In this chapter, you will learn to identify key formation properties and recognize different rock types. Next, we'll get into understanding the significance and types of porosity and permeability. Finally, we will assess fluid saturations and understand the effects of borehole conditions and filtrate invasion. Let's get started!.</p>
     
-                scriptElements.forEach(function(p) {
-                    p.addEventListener("click", function() {
-                        var time = p.getAttribute("data-time");
-                        if (time) {
-                            video.currentTime = time;
-                            video.play();
-                            highlightScript(p);
-                        }
-                    });
-                });
-    
-                navLinks.forEach(function(link) {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        var time = link.getAttribute("data-time");
-                        if (time) {
-                            video.currentTime = time;
-                            video.play();
-                            highlightCurrentScript(time);
-                        }
-                    });
-                });
-    
-                video.addEventListener("timeupdate", function() {
-                    highlightCurrentScript(video.currentTime);
-                });
-    
-                function highlightScript(element) {
-                    scriptElements.forEach(function(p) {
-                        p.classList.remove("highlight");
-                    });
-                    element.classList.add("highlight");
-                    scrollToView(element);
-                }
-    
-                function highlightCurrentScript(currentTime) {
-                    scriptElements.forEach(function(p) {
-                        var time = p.getAttribute("data-time");
-                        if (time && currentTime >= time) {
-                            highlightScript(p);
-                        }
-                    });
-                }
-    
-                function scrollToView(element) {
-                    var wrapperTop = scriptWrapper.scrollTop;
-                    var wrapperBottom = wrapperTop + scriptWrapper.clientHeight;
-                    var elementTop = element.offsetTop;
-                    var elementBottom = elementTop + element.clientHeight;
+        
+                <p data-time="29"><b>Fundamental Formation Properties</b></p>
+                <p data-time="29">The basic purpose behind calling a wireline company is to get the “first look” at fundamental properties that are vital for evaluating the potential producibility of a hydrocarbon reservoir. These properties include: Lithology, Porosity, Fluid saturations, and Permeability.</p>
+                
+                <p data-time="49"><b>Basic Wireline Services</b></p>
+                <p data-time="49">To get this valuable data, the first log to run is a triple-combo, which will provide information about resistivity, bulk density/neutron porosity, and gamma ray measurements. The difference with a quad-combo is that the latter includes sonic measurements.</p>
+                
+                <p data-time="66"><b>Lithology</b></p>
+                <p data-time="66">Now, let's get back to the fundamentals and begin with: Lithology, this is related to two key concepts: mineralogy and framework. Mineralogy refers to the assemblage of different minerals in a rock that determines its chemical properties, and the framework describes the physical structure of a rock and it determines the distribution of any void space.</p>
+                <p data-time="91">It's vital to be aware of this because different minerals and the physical structure of a rock affect log responses. For example, many sandstones contain a large percentage of the mineral quartz (SiO2), while others might contain equally large percentages of feldspar minerals. The log responses of these two sandstones will be different.</p>
+                <p data-time="113">In summary, understanding lithology is crucial for interpreting log responses accurately. Both the mineral composition and the physical structure of rocks determine how logging tools will respond. By recognizing the mineralogy and framework of the formation being logged, we can better assess the validity of the data and make more informed decisions about the reservoir's potential.</p>
+                
+                <p data-time="138"><b>Porosity</b></p>
+                <p data-time="138">Next let's see what is Porosity? It is represented by the Greek letter "Phi" (Φ), and is the measure of void spaces within a rock. Imagine if a quarter of a rock's volume is empty space—its porosity is 25%. These voids are crucial because they hold fluids like water and hydrocarbons. Simply put, higher porosity means more fluid capacity.</p>
+                <p data-time="163">Now, before we explore different types of porosity. Keep in mind that what’s important is the connectivity of the pores, here in the images shown in blue, this connectivity is relevant because Interconnected pores allow fluids to flow, whereas isolated pores do not.</p>
+                <p data-time="181">So we have primary porosity, formed during the initial deposition of sediments, like the spaces between grains in sandstone. Also, there's secondary porosity, which develops later due to processes like fracturing or dissolution.</p>
+                <p data-time="199">When we talk about porosity measurements, we also distinguish between total porosity (Φt), which includes all pore spaces, and effective porosity (Φe), which only accounts for interconnected pores.</p>
+                <p data-time="213">Neutron and density logs help estimate total porosity. On the other hand, acoustic logs, imagers, magnetic resonance, and core samples are great for determining effective porosity.</p>
+                <p data-time="226">Be aware that direct measurement of porosity comes from core samples, but often, we rely on log data. Combining neutron and density logs provides a more accurate total porosity estimate, while effective porosity from acoustic logs, imagers, magnetic resonance, and core samples are key for improving our understanding of fluid flow potential.</p>
+                <p data-time="251">And why is porosity so important? Because, these estimates are critical for determining how much fluid a formation contains and its flow potential. This information helps estimate hydrocarbon reserves and evaluate reservoir productivity, especially when core samples aren’t available. Keep in mind that accurate porosity data is essential for effective reservoir management and maximizing hydrocarbon recovery.</p>
+                
+                <p data-time="279"><b>Fluid Saturations</b></p>
+                <p data-time="279">Another fundamental property is Fluid saturations, such as water saturation (Sw) and hydrocarbon saturation (Sh), which indicate the relative proportions of these fluids. Sw and Sh must add up to 1.0. By measuring resistivity and porosity, we can estimate water saturation, giving us insights into the formation's fluid content.</p>
+                <p data-time="306">However, fluid saturations don't directly tell us the volumes of fluids that will be produced. For instance, a 25% water saturation doesn't mean one barrel of water for every three barrels of oil. Some water, known as bound water, is trapped and irreducible. Similarly, some oil may be immobile due to capillary forces or low viscosity.</p>
+                <p data-time="332">By combining porosity estimates with resistivity measurements at different depths, we can assess water saturation at various distances from the borehole. Comparing these saturations reveals if hydrocarbons were displaced during mud filtrate invasion. If water saturations differ at various depths, it indicates movable hydrocarbons, which are likely producible.</p>
+                <p data-time="356">While fluid saturations don't perfectly predict production volumes, they offer critical insights. They help determine if a formation is worth considering as a reservoir. Fluid saturation estimates, combined with other log data, enable clients to decide whether to complete or abandon a well and these estimates are vital for determining a well's potential and guiding decision-making.</p>
+                
+                <p data-time="384"><b>Permeability</b></p>
+                <p data-time="384">The last fundamental property covered in this module is: Permeability, known as the rock’s ability to allow fluids to pass through it. This characteristic is vital for hydrocarbon production. We measure permeability in a unit called darcies, though we often use millidarcies, which are one-thousandth of a darcy. When we talk about absolute permeability, we're referring to a rock’s capacity to transmit a fluid when it's completely saturated with that fluid—meaning it’s dealing with just one type of fluid at a time.</p>
+                <p data-time="416">However, rocks usually contain more than one fluid, like water and hydrocarbons, which are immiscible. Then, effective permeability measures the rock's ability to transmit one fluid in the presence of another. This depends on: the rock’s absolute permeability, capillary pressure, and the relative amounts of each fluid. In consequence, more water in the pores means it’s harder to transmit hydrocarbons, and vice versa.</p>
+                <p data-time="445">And while many logging measurements respond to permeability, none can quantify it directly. Accurate permeability values come from core samples. But logs can indicate permeability qualitatively. For instance, SP curve deflections and the separation of resistivity curves can hint at permeability. Knowing the lithology and porosity also helps. For example, sandstone with 30% porosity likely has high permeability, while carbonates may have low permeability due to isolated pore spaces.</p>
+                <p data-time="480">Advanced tools like formation testers and magnetic resonance logging, which are more expensive, provide better permeability estimates, often closely approximating the rock’s true permeability. But remember, logs alone can't give us a complete picture.</p>
+                
+                <p data-time="500"><b>The Borehole Influence</b></p>
+                <p data-time="500">Now you will learn how borehole properties can influence logging measurements. Since these measurements are acquired by sensors on toolstrings within the borehole, it's inevitable that borehole conditions will impact the data that is collected.</p>
+                <p data-time="517">Some tools, like the density porosity tool, use pad-mounted sensors equipped with collimated and shielded detectors. Collimated means that these special detectors help focus on the important signals while filtering out background noise. This design helps minimize or eliminate borehole interference, ensuring more accurate readings. However, other tools—such as resistivity, neutron, and gamma ray—operate with sensors surrounded by borehole fluid, making them more susceptible to borehole conditions.</p>
+                <p data-time="552">For resistivity measurements taken at various depths, borehole influence is more pronounced in shallow readings compared to deeper ones. This influence varies with borehole fluid salinity and diameter. Ideally, resistivity tools should be logged in their preferred borehole environment to minimize this impact. But, since perfect conditions are rare, we often need to assess and correct for borehole influence.</p>
+                <p data-time="581">To determine and correct for borehole influence, we control tool position using stand-offs or centralizers and measure borehole fluid salinity and diameter. Neutron and gamma ray measurements, for example, are affected by the attenuating effects of borehole fluid. More borehole fluid around the tool means fewer neutrons and gamma rays reach the detectors, and higher fluid density has a similar effect.</p>
+                <p data-time="609">Finally, corrections for borehole influence can be applied if borehole properties are known. This leads to more accurate formation property estimates from logs. But while some corrections are applied in real-time, most are left to the client's discretion, meaning that service companies often provide uncorrected results. Again, It's crucial to recognize borehole effects to apply the right corrections.
+                </p>
+                
+                <p data-time="636"><b>Filtrate Invasion</b></p>
+                <p data-time="636">Now, let's learn another concept called "filtrate invasion".</p>
+                <p data-time="643">First, let's imagine we have a block of rock representing our formation. Now, picture a drill bit creating a hole in this block, by the nature of this process the hole usually  gets filled with drilling mud.</p>
+                <p data-time="648">Now, because the formation is often permeable, something interesting happens. Part of the drilling mud seeps into the formation, and this invading fluid is called "filtrate".</p>
+                <p data-time="670">Let's break this down further. Closest to the borehole, we have an area where the filtrate concentration is the highest. This zone is heavily influenced by the drilling mud and is known as the "Flushed Zone".</p>
+                <p data-time="684">But not all of the drilling mud gets absorbed into the formation. Some of it starts to build up on the borehole wall, forming what we call "mud cake".</p>
+                <p data-time="695">Moving a bit further from the borehole, we encounter the "Transition Zone". This area has a mix of the original formation fluids and some of the filtrate.</p>
+                <p data-time="707">And finally, the furthest zone from the borehole is called the "Uninvaded Zone". This zone remains mostly unaffected by the drilling process and contains the original formation fluids.</p>
+                <p data-time="722">In summary, understanding invasion helps us to create different fluid distributions in the formation. Close to the borehole, the flushed zone contains a high proportion of mud filtrate, displacing original pore fluids. As we move further from the borehole, the transition zone has decreasing filtrate and increasing original fluids. Beyond this, in the uninvaded zone, pores are filled entirely with original fluids like water and hydrocarbons and logging measurements taken at deeper depths reflect these original conditions.</p>
+                <p data-time="762">To conclude, remember that filtrate invasion, rock properties, the borehole influence, and their effects on log responses make data validation and reservoir evaluation challenging. Understanding geology helps make sense of these factors. Even without extensive geological knowledge, considering how and why rocks differ can help validate log responses and improve reservoir evaluation.</p>
+
+                <!-- More script content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Vimeo Player setup
+        const iframe = document.getElementById('vimeo-player');
+        const player = new Vimeo.Player(iframe);
+
+        // Elements related to the script highlighting and scrolling
+        const scriptContainer = document.getElementById('script-container');
+        const scriptParagraphs = document.querySelectorAll('#script p');
+
+        // Handle video time updates
+        player.on('timeupdate', function(event) {
+            const currentTime = event.seconds;
+
+            scriptParagraphs.forEach(paragraph => {
+                const paragraphTime = parseFloat(paragraph.getAttribute('data-time'));
+                if (currentTime >= paragraphTime && currentTime < paragraphTime + 5) {
+                    scriptParagraphs.forEach(p => p.classList.remove('highlight'));
+                    paragraph.classList.add('highlight');
                     
-                    if (elementTop < wrapperTop || elementBottom > wrapperBottom) {
-                        scriptWrapper.scrollTop = elementTop - (scriptWrapper.clientHeight / 2) + (element.clientHeight / 2);
-                    }
+                    // Scroll into view
+                    scriptContainer.scrollTop = paragraph.offsetTop - scriptContainer.offsetTop;
                 }
             });
-        </script>
-        
-    </body>
-    
-    </html>
+        });
+
+        // Handle clicks on the menu items to sync with the video
+        const menuItems = document.querySelectorAll('.menu-container a[data-time]');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Get the time from the data-time attribute
+                const time = item.getAttribute('data-time');
+                const timeParts = time.split(':');
+                const seconds = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+                // Set the player to the clicked time
+                player.setCurrentTime(seconds).then(function() {
+                    // Video time is set
+                }).catch(function(error) {
+                    console.error('Error setting video time:', error);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

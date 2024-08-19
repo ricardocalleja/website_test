@@ -3,116 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video with Script</title>
+    <title>Wireline Logging Tutorial</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Include the Open Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
+            margin: 0;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
-
-        .nav-wrapper {
-            width: 15%;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-        }
-
-        .nav-wrapper ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .nav-wrapper ul li {
-            margin: 10px 0;
-        }
-
-        .nav-wrapper ul li a {
-            text-decoration: none;
-            color: #000;
-            cursor: pointer;
-        }
-
-        .nav-wrapper ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
+        .main-container {
             display: flex;
             flex-direction: row;
+            align-items: flex-start;
             justify-content: space-between;
-            margin: 20px;
-            width: 85%;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .video-wrapper {
-            flex: 1;
-            max-width: 60%;
-            margin-right: 20px;
+        .menu-container {
+            flex: 0 0 15%; /* 15% of the width for the menu */
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            max-height: 100vh; /* Set maximum height to viewport height */
         }
-
-        .script-wrapper {
-            flex: 1;
-            max-width: 35%;
-            overflow-y: scroll;
-            height: 450px;
-            border-left: 1px solid #ddd;
-            padding-left: 20px;
+        .menu-container a {
+            display: block;
+            
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #ddd;
         }
-
+        .menu-container a:hover {
+            background-color: #ddd;
+        }
+        .video-container {
+            padding-top: 50px;
+            flex: 0 0 50%; /* 50% of the width for the video */
+            position: relative;
+            background-color: #fff;
+        }
+        .script-container {
+            padding-top: 50px;
+            flex: 0 0 25%; /* 25% of the width for the script */
+            background-color: #fff;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 100vh;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
         .highlight {
-            background-color: #d4daf6; /*8ab4f8*/
-            border-radius: 10px; /* Rounded corners */
-            padding: 5px;
+            background-color: rgba(173, 216, 230, 0.3); /* Light blue background */
         }
-
-        p {
-            margin: 10px 0;
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            .menu-container, .video-container, .script-container {
+                flex: 1 0 auto;
+                width: 100%;
+                height: auto;
+            }
+            .menu-container {
+                order: 2;
+            }
+            .video-container {
+                order: 1;
+            }
+            .script-container {
+                order: 3;
+            }
         }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNRQGQ8HJ1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WNRQGQ8HJ1');
-</script>
 </head>
 <body>
-    <div class="nav-wrapper">
-        <h2>Course Content</h2>
-        <ul>
-            <li><a href="#" data-time="0"><i class="fas fa-play-circle"></i> Chapter 1 - The Reservoir and the logging environment</a></li>
-            <li><a href="#" data-time="29"><i class="fas fa-play-circle"></i> Chapter 2 - Spontaneous Potential</a></li>
-            <li><a href="#" data-time="66"><i class="fas fa-play-circle"></i> Chapter 3 - Resistivity tools</a></li>
-            <li><a href="#" data-time="138"><i class="fas fa-play-circle"></i> Chapter 4 - Gamma rays</a></li>
-            <li><a href="#" data-time="279"><i class="fas fa-play-circle"></i> Chapter 5 - Neutron Porosity</a></li>
-            <li><a href="#" data-time="384"><i class="fas fa-play-circle"></i> Chapter 6 - Density Porosity</a></li>
-            <li><a href="#" data-time="500"><i class="fas fa-play-circle"></i>  Chapter 7  - Acoustic Porosity</a></li>
-            <li><a href="https://ricardocalleja.com/" >Back to main menu</a></li>
-
-
-        </ul>
-    </div>
-    
-    <div class="container">
-        <div class="video-wrapper">
-            <video id="video" controls>
-                <source src="Chapter_01_v1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <div class="main-container">
+        <div class="menu-container">
+            <a href="#"><h1>Oil & Gas - Wireline Logging Essential Training</h1></a>
+            <a href="#" data-time="00:01">Chapter 1 - The Reservoir and the Logging Environment</a>
+            <a href="#" data-time="00:29">Chapter 2 - Spontaneous Potential or SP</a>
+            <a href="#" data-time="00:49">Chapter 3 - Resistivity Tools</a>
+            <a href="#" data-time="01:06">Chapter 4 - Gamma Rays</a>
+            <a href="#" data-time="02:18">Chapter 5 - Neutron Porosity</a>
+            <a href="#" data-time="04:39">Chapter 6 - Density Porosity</a>
+            <a href="#" data-time="06:24">Chapter 7 - Acoustic Porosity</a>
+            <a href="https://github.com/ricardocalleja/website_test/tree/main/Manuals" download>Course Manuals</a>
+            <a href="https://ricardocalleja.com/">Back to main menu</a>
         </div>
-        
-        <div class="script-wrapper" id="script-wrapper">
+
+        <div class="video-container">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe id="vimeo-player" src="https://player.vimeo.com/video/999324463?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        title="Chapter_1"></iframe>
+            </div>
+        </div>
+
+        <div class="script-container" id="script-container">
             <div id="script">
                 <!-- Add your script here with timestamps -->
-            <!-- Add your script here with timestamps -->
-
-            <p data-time="00"><b>Welcome</b></p>
+                <p data-time="00"><b>Welcome</b></p>
             <p data-time="00">Ricardo: Hello, I am Ricardo Calleja, and I want to welcome you to the course: Wireline Logging, Essential Training.</p>
             
             <p data-time="07"><b>Learning Objectives</b></p>
@@ -136,75 +129,59 @@
             </ul>
             <p data-time="91">Be aware that this course is not about the technology of a specific service company. Instead, we will review what the industry leaders have to offer, providing a comprehensive understanding of wireline logging practices. Let’s begin.</p>
             
+                <!-- More script content -->
             </div>
-
-            </div>
-            
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var video = document.getElementById("video");
-                var scriptWrapper = document.getElementById("script-wrapper");
-                var scriptElements = document.querySelectorAll("#script p");
-                var navLinks = document.querySelectorAll(".nav-wrapper ul li a");
-    
-                scriptElements.forEach(function(p) {
-                    p.addEventListener("click", function() {
-                        var time = p.getAttribute("data-time");
-                        if (time) {
-                            video.currentTime = time;
-                            video.play();
-                            highlightScript(p);
-                        }
-                    });
-                });
-    
-                navLinks.forEach(function(link) {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        var time = link.getAttribute("data-time");
-                        if (time) {
-                            video.currentTime = time;
-                            video.play();
-                            highlightCurrentScript(time);
-                        }
-                    });
-                });
-    
-                video.addEventListener("timeupdate", function() {
-                    highlightCurrentScript(video.currentTime);
-                });
-    
-                function highlightScript(element) {
-                    scriptElements.forEach(function(p) {
-                        p.classList.remove("highlight");
-                    });
-                    element.classList.add("highlight");
-                    scrollToView(element);
-                }
-    
-                function highlightCurrentScript(currentTime) {
-                    scriptElements.forEach(function(p) {
-                        var time = p.getAttribute("data-time");
-                        if (time && currentTime >= time) {
-                            highlightScript(p);
-                        }
-                    });
-                }
-    
-                function scrollToView(element) {
-                    var wrapperTop = scriptWrapper.scrollTop;
-                    var wrapperBottom = wrapperTop + scriptWrapper.clientHeight;
-                    var elementTop = element.offsetTop;
-                    var elementBottom = elementTop + element.clientHeight;
+    </div>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Vimeo Player setup
+        const iframe = document.getElementById('vimeo-player');
+        const player = new Vimeo.Player(iframe);
+
+        // Elements related to the script highlighting and scrolling
+        const scriptContainer = document.getElementById('script-container');
+        const scriptParagraphs = document.querySelectorAll('#script p');
+
+        // Handle video time updates
+        player.on('timeupdate', function(event) {
+            const currentTime = event.seconds;
+
+            scriptParagraphs.forEach(paragraph => {
+                const paragraphTime = parseFloat(paragraph.getAttribute('data-time'));
+                if (currentTime >= paragraphTime && currentTime < paragraphTime + 5) {
+                    scriptParagraphs.forEach(p => p.classList.remove('highlight'));
+                    paragraph.classList.add('highlight');
                     
-                    if (elementTop < wrapperTop || elementBottom > wrapperBottom) {
-                        scriptWrapper.scrollTop = elementTop - (scriptWrapper.clientHeight / 2) + (element.clientHeight / 2);
-                    }
+                    // Scroll into view
+                    scriptContainer.scrollTop = paragraph.offsetTop - scriptContainer.offsetTop;
                 }
             });
-        </script>
-        
-    </body>
-    
-    </html>
+        });
+
+        // Handle clicks on the menu items to sync with the video
+        const menuItems = document.querySelectorAll('.menu-container a[data-time]');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Get the time from the data-time attribute
+                const time = item.getAttribute('data-time');
+                const timeParts = time.split(':');
+                const seconds = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+                // Set the player to the clicked time
+                player.setCurrentTime(seconds).then(function() {
+                    // Video time is set
+                }).catch(function(error) {
+                    console.error('Error setting video time:', error);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
